@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -22,7 +21,7 @@ public class ManagementService {
 
     private final CityRepository cityRepository;
 
-    @GetMapping(value = "/cities",produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/cities", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<City>> getAllCities() {
         return new ResponseEntity<>(cityRepository.findAll(), HttpStatus.OK);
     }
