@@ -16,12 +16,9 @@ public class City {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Integer id;
-    @Column(name = "name")
     private String name;
     @Column(name = "country_code")
     private String countryCode;
-    @Column(name = "district")
     private String district;
-    @Column(name = "population")
-    private int population;
+    private Integer population;
 }

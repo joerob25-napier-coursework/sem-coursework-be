@@ -21,8 +21,8 @@ CREATE TABLE `country` (
                            PRIMARY KEY (`code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-DROP TABLE IF EXISTS `countrylanguage`;
-CREATE TABLE `countrylanguage` (
+DROP TABLE IF EXISTS `country_language`;
+CREATE TABLE `country_language` (
                                    `country_code` char(3) NOT NULL DEFAULT '',
                                    `language` char(30) NOT NULL DEFAULT '',
                                    `is_official` enum('T','F') NOT NULL DEFAULT 'F',

@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  mysqldb:
+    image: mysql:latest
+    restart: unless-stopped
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+
+  spring-app:
+    image: joerob25/sem-coursework-be:latest
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+    environment:
+      - spring.datasource.url=jdbc:mysql://mysqldb:3306/world?createDatabaseIfNotExist=true
+    depends_on:
+      - mysqldb
