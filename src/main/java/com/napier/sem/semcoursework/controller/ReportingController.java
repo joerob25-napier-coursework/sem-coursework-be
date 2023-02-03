@@ -43,3 +43,4 @@ public class ReportingController {
         return new ResponseEntity<>(reportingService.allCountriesOrderedLargestToSmallest(), HttpStatus.OK);
     }
 }
+
