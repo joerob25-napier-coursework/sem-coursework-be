@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-\\ This class is the rest endpoints for the countries 
+// This class is the rest endpoints for the countries 
 
 @RestController
 @RequestMapping("/api/v1/world")
