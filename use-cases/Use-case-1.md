@@ -20,7 +20,7 @@ We know the continent/region/country. Database contains current population data.
 
 ### Success End Condition
 
-A report is available for the Data Gatherer to present at their weekly management meeting.
+A report on population is available for the Data Gatherer to present at their weekly management meeting.
 
 ### Failed End Condition
 
@@ -51,4 +51,4 @@ None.
 
 ## SCHEDULE
 
-**DUE DATE**: Release 1.0
+**DUE DATE**: Release 1.1
