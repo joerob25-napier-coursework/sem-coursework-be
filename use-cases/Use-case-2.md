@@ -7,7 +7,7 @@
 As a *Data Gatherer* I want *to produce a report on a given country* so that *I can present it to my weekly management meeting.*
 
 ### Scope
-Company
+Company  
 what system is considered black-box under design?
 
 ### Level
