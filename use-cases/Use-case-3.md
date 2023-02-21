@@ -25,7 +25,7 @@
     where I specify the number of cities to be shown
 
 ### INITIATING ACTOR 
-Data Gatherer
+Data Gatherer.
 
 ### ACTOR'S GOAL
 As a *Data Gatherer* I want *to produce a report on a given City* so that *I can present it to my weekly management 
@@ -53,4 +53,4 @@ A report on the given City is available for the Data Gatherer to present at thei
 
 ## RELEASE
 
-Release 1.0
+Release 1.1
