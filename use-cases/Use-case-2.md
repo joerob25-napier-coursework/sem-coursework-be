@@ -2,7 +2,7 @@
 
 ## CHARACTERISTIC INFORMATION
 
-### Related Requirements
+### RELATED REQUIREMENTS
 1. As a Data Gatherer, I need to be able to generate a report which shows all the countries in the world organised 
    by largest population to smallest
 2. As a Data Gatherer, I need to be able to generate a report which shows all the countries in a continent organised
@@ -16,20 +16,20 @@
 6. As a Data Gatherer, I need to be able to generate a report which shows the top populated countries in a region
    where I specify the number of countries to be shown
 
-### Initiating Actor 
+### INITIATING ACTOR 
 Data Gatherer.
 
-### Actor's Goal
+### ACTOR'S GOAL
 As a *Data Gatherer* I want *to produce a report on a given country* so that *I can present it to my weekly management
 meeting.*
 
-### Participating Actors
+### PARTICIPATING ACTORS
 Management who attend the meeting need to be shown information on given Countries
 
-### Preconditions
+### PReCONDITIONS
 We know the given Country. Database contains current data on Countries.
 
-### Postconditions
+### POSTCONDITIONS
 A report on the given Country is available for the Data Gatherer to present at their weekly management meeting.
 
 ## MAIN SUCCESS SCENARIO
@@ -43,6 +43,6 @@ A report on the given Country is available for the Data Gatherer to present at t
 **Failed End Condition**:
     - No report is produced
 
-## Release
+## RELEASE
 
 Release 1.2
