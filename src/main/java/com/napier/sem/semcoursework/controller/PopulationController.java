@@ -1,4 +1,2 @@
-package com.napier.sem.semcoursework.controller;
-
-public class PopulationController {
+package com.napier.sem.semcoursework.controller;public class PopulationController {
 }
