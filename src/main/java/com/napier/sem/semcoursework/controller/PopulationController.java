@@ -1,15 +1,15 @@
 package com.napier.sem.semcoursework.controller;
 
 import com.napier.sem.semcoursework.model.City;
+import com.napier.sem.semcoursework.model.Country;
+import com.napier.sem.semcoursework.model.Population;
 import com.napier.sem.semcoursework.repository.CityRepository;
+import com.napier.sem.semcoursework.repository.PopulationRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,4 +21,9 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 public class PopulationController {
+private final PopulationRepository populationRepository;
+    @GetMapping(value = "/report/1", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Population>> populationCitiesInContinent() {
+        return new ResponseEntity<>(populationRepository.populationCitiesInContinent(), HttpStatus.OK);
+    }
 }
