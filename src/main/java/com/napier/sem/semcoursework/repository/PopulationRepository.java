@@ -1,5 +1,4 @@
 /**
-
  * The PopulationRepository interface provides methods for accessing and modifying population data in the database.
  */
 
