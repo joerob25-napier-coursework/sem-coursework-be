@@ -10,7 +10,7 @@ services:
       - MYSQL_ROOT_PASSWORD=password
 
   spring-app:
-    image: joerob25/sem-coursework-be:latest
+    image: sem-coursework-be:0.0.1
     restart: unless-stopped
     ports:
       - 8080:8080
