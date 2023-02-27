@@ -13,8 +13,6 @@ import lombok.NoArgsConstructor;
 @Entity
 public class City {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
     private Integer id;
     private String name;
     @Column(name = "country_code")
