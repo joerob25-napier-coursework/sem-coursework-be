@@ -16,7 +16,7 @@ public class PopulationRepository {
     public List<Population> populationCitiesInContinent() {
         try {
             return template.query(
-                    "select continent, country.Population from country", (rs,rowNum) -> Population.builder().continent(rs.getString("continent")).population(rs.getString("country.Population")).build());
+                    "select continent, country.Population, CONCAT(ROUND((city.population/country.population)*100,2),'%') AS in_cities from country", (rs,rowNum) -> Population.builder().continent(rs.getString("continent")).population(rs.getString("country.Population")).in_cities(rs.getString("in_cities")).build());
         }catch (Exception e){
             System.out.println(e.getLocalizedMessage());
             return null;
