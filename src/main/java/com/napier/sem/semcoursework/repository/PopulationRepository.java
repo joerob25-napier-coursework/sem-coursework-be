@@ -8,11 +8,20 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+/**
+ * This class represents a population repository that allows access to population data in the database.
+ */
 
 @Component
 @RequiredArgsConstructor
 public class PopulationRepository {
+    /**
+     *The JdbcTemplate instance used to query the database.
+     */
     private final JdbcTemplate template;
+/**
+ *Retrieves population data for cities in each continent.
+ */
     public List<Population> populationCitiesInContinent() {
         try {
             return template.query(
