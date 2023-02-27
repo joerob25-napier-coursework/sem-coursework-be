@@ -7,10 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.print.attribute.standard.Media;
 import java.util.List;
@@ -35,8 +32,42 @@ public class CityController {
 
     @GetMapping(value = "/report/1", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<City>> cityReport1() {
+        try {
+            return new ResponseEntity<>(cityRepository.largestToSmallestCitiesWorld(), HttpStatus.OK);
+        } catch (Exception e){
+            System.out.println(e.getLocalizedMessage());
+            return null;
+        }
 
-        return new ResponseEntity<>(cityRepository.largestToSmallestCities(), HttpStatus.OK);
+
+
+
+    }
+    @GetMapping(value = "/report/2/{continent}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<City>> cityReport2(@PathVariable String continent) {
+
+        return new ResponseEntity<>(cityRepository.largestToSmallestCitiesContinent(continent), HttpStatus.OK);
+
+    }
+
+    @GetMapping(value = "/report/3/{region}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<City>> cityReport3(@PathVariable String region) {
+
+        return new ResponseEntity<>(cityRepository.largestToSmallestCitiesRegion(region), HttpStatus.OK);
+
+    }
+
+    @GetMapping(value = "/report/4/{country}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<City>> cityReport4(@PathVariable String country) {
+
+        return new ResponseEntity<>(cityRepository.largestToSmallestCitiesCountry(country), HttpStatus.OK);
+
+    }
+
+    @GetMapping(value = "/report/5/{district}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<City>> cityReport5(@PathVariable String district) {
+
+        return new ResponseEntity<>(cityRepository.largestToSmallestCitiesDistrict(district), HttpStatus.OK);
 
     }
 

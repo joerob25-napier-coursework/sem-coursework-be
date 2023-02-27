@@ -27,7 +27,7 @@ jobs:
         with:
           repo_token: '${{ secrets.GITHUB_TOKEN }}'
           prerelease: true
-          title: "Development Build"
+          title: "sprint 2 - dev build"
           automatic_release_tag: 'latest'
           files: |
             ./target/*.jar
