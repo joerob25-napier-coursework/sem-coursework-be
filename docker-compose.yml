@@ -10,7 +10,9 @@ services:
       - MYSQL_ROOT_PASSWORD=password
 
   spring-app:
-    image: joerob25/sem-coursework-be:latest
+    image: sem-coursework-be:dev
+    build:
+      dockerfile: ./Dockerfile
     restart: unless-stopped
     ports:
       - 8080:8080
