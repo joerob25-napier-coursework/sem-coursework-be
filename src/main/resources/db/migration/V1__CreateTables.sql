@@ -1,6 +1,6 @@
 -- noinspection SqlNoDataSourceInspectionForFile
 -- noinspection SqlDialectInspectionForFile
-set global sql_mode='';
+SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'only_full_group_by',''))
 DROP TABLE IF EXISTS `country`;
 CREATE TABLE `country` (
                            `code` char(3) NOT NULL DEFAULT '',
