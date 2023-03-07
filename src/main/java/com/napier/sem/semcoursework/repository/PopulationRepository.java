@@ -23,13 +23,12 @@ public class PopulationRepository {
      *Retrieves population data for cities in each continent.
      */
     public List<Population> populationCitiesInContinent() {
-        try {
+//        try {
             return template.query(
                     "select continent, country.Population, CONCAT(ROUND((city.population/country.population)*100,2),'%') AS in_cities, CONCAT(ROUND((((country.Population)-(city.Population))/(country.Population))*100,2),'%') AS not_in_cities FROM country JOIN city ON country.code=city.country_code", (rs,rowNum) -> Population.builder().continent(rs.getString("continent")).population(rs.getString("country.Population")).in_cities(rs.getString("in_cities")).not_in_cities(rs.getString("not_in_cities")).build());
-        }catch (Exception e){
-            System.out.println(e.getLocalizedMessage());
-            return null;
-        }
-
+//        }catch (Exception e){
+//            System.out.println(e.getLocalizedMessage());
+//            return null;
+//        }
     }
 }
