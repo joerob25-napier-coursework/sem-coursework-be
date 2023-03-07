@@ -1,5 +1,6 @@
 -- noinspection SqlNoDataSourceInspectionForFile
 -- noinspection SqlDialectInspectionForFile
+set global sql_mode='';
 DROP TABLE IF EXISTS `country`;
 CREATE TABLE `country` (
                            `code` char(3) NOT NULL DEFAULT '',
