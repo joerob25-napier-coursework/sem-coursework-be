@@ -20,7 +20,7 @@ jobs:
       - name: Package with Maven
         run: mvn --batch-mode --update-snapshots -DskipTests=true package
       - name: Compose Docker containers
-        run: docker compose up -d --build
+        run: docker compose up -d
       - name: Docker down
         run: docker compose down
 
