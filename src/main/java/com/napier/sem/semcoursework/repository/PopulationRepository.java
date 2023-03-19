@@ -25,7 +25,15 @@ public class PopulationRepository {
     public List<Population> populationCitiesInContinent() {
 //        try {
             return template.query(
-                    "select continent, country.Population, CONCAT(ROUND((city.population/country.population)*100,2),'%') AS in_cities, CONCAT(ROUND((((country.Population)-(city.Population))/(country.Population))*100,2),'%') AS not_in_cities FROM country JOIN city ON country.code=city.country_code GROUP BY continent", (rs,rowNum) -> Population.builder().continent(rs.getString("continent")).population(rs.getString("country.Population")).in_cities(rs.getString("in_cities")).not_in_cities(rs.getString("not_in_cities")).build());
+                    "with continents_populations as (select code, continent, sum(population) as continent_population" +
+                            "from country group by code, continent), cities_populations as (select country_code," +
+                            "sum(population) as city_population from city group by country_code) select copops.continent," +
+                            "coalesce(sum(copops.continent_population),0) as total_continent_population," +
+                            "coalesce(sum(cipops.city_population),0) as total_in_city_population," +
+                            "coalesce(sum((copops.continent_population-cipops.city_population)),0) as" +
+                            "total_not_in_city_population from continents_populations copops left join cities_populations" +
+                            "cipops on (copops.code = cipops.country_code) group by copops.continent",
+                    (rs,rowNum) -> Population.builder().continent(rs.getString("continent")).population(rs.getString("total_continent_population")).in_cities(rs.getString("total_in_city_population")).not_in_cities(rs.getString("total_not_in_city_population")).build());
 //        }catch (Exception e){
 //            System.out.println(e.getLocalizedMessage());
 //            return null;
