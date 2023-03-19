@@ -21,6 +21,6 @@ public class PopulationController {
     private final PopulationRepository populationRepository;
     @GetMapping(value = "/report/1", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Population>> populationCitiesInContinent() {
-        return new ResponseEntity<>(populationRepository.populationCitiesInContinent(), HttpStatus.OK);
+        return new ResponseEntity<>(populationRepository.populationOfContinentsLivingInCities(), HttpStatus.OK);
     }
 }
