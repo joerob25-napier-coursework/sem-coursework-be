@@ -2,6 +2,7 @@ package com.napier.sem.semcoursework;
 
 import com.napier.sem.semcoursework.repository.CountryRepository;
 import com.napier.sem.semcoursework.repository.PopulationRepository;
+import com.napier.sem.semcoursework.repository.LanguageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.DynamicPropertyRegistry;
@@ -29,5 +30,12 @@ public abstract class ITTemplate {
 
     @Autowired
     protected CountryRepository countryRepository;
-    protected PopulationRepository populationRepository;
+
+   @Autowired
+   protected PopulationRepository populationRepository;
+
+    @Autowired
+    protected LanguageRepository languageRepository;
+
+
 }
