@@ -86,8 +86,7 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
         assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
     }
     /**
-     * Test to ensure that a valid request to the population report 1 endpoint without a repository stub returns a status
-     * of OK
+     * Test to ensure that a valid response from the population report 1 and returns a status of OK
      */
     @Test
     public void populationOfContinentsLivingInCities() throws Exception {
@@ -100,8 +99,7 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
         assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
     }
     /**
-     * Test to ensure that a valid request to the population report 2 endpoint  returning a status
-     * of OK
+     * Test to ensure that a valid response from the population report 2 and returns a status of OK
      */
     @Test
     public void populationOfRegionLivingInCities() throws Exception {
@@ -114,8 +112,7 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
         assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
     }
     /**
-     * Test to ensure that a valid request to the population report 3 endpoint  returning a status
-     * of OK
+     * Test to ensure that a valid response from the population report 3 and returns a status of OK
      */
     @Test
     public void populationOfCountryLivingInCities() throws Exception {
