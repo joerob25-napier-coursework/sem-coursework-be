@@ -85,4 +85,17 @@ public class AdditionalPopulationController {
                 populationCityLevelRepository.districtPopulation(district), HttpStatus.OK);
     }
 
+    /**
+     *
+     * @param city is the sql where clause to query population for a particular city
+     * @return population of city, with a http status of 200
+     */
+    @GetMapping(value = "/population/city/{city}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Long> populationCity(
+            @PathVariable String city
+    ) {
+        return new ResponseEntity<>(
+                populationCityLevelRepository.cityPopulation(city), HttpStatus.OK);
+    }
+
 }
