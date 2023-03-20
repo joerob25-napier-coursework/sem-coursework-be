@@ -16,7 +16,7 @@ public interface AdditionalCountryLevelPopulationRepository extends JpaRepositor
      * @return world population
      */
     @Query(value = "select sum(population) from country", nativeQuery = true)
-    Integer worldPopulation();
+    Long worldPopulation();
 
     /**
      * Query to retrieve population of a continent
@@ -24,7 +24,7 @@ public interface AdditionalCountryLevelPopulationRepository extends JpaRepositor
      * @return population of continent
      */
     @Query(value = "select sum(population) from country where continent = :continent", nativeQuery = true)
-    Integer continentPopulation(
+    Long continentPopulation(
             @Param("continent") String continent);
 
     /**
@@ -33,7 +33,7 @@ public interface AdditionalCountryLevelPopulationRepository extends JpaRepositor
      * @return population of region
      */
     @Query(value = "select sum(population) from country where region = :region", nativeQuery = true)
-    Integer regionPopulation(
+    Long regionPopulation(
             @Param("region") String region
     );
 
@@ -43,31 +43,27 @@ public interface AdditionalCountryLevelPopulationRepository extends JpaRepositor
      * @return population of country
      */
     @Query(value = "select sum(population) from country where code = :countryCode", nativeQuery = true)
-    Integer countryPopulation(
+    Long countryPopulation(
             @Param("countryCode") String countryCode
     );
 
     /**
      * Query to retrieve population of a district
-     * @param countryCode provided by the user as the sql where clause
      * @param district provided by the user
      * @return population of district
      */
-    @Query(value = "select sum(population) from city where district = :district and country_code = :countryCode", nativeQuery = true)
-    Integer districtPopulation(
-            @Param("countryCode") String countryCode,
+    @Query(value = "select sum(population) from city where district = :district", nativeQuery = true)
+    Long districtPopulation(
             @Param("district") String district
     );
 
     /**
      * Query to retrieve population of a city
-     * @param countryCode provided by the user as the sql where clause
      * @param cityName provided by the user
      * @return population of district
      */
-    @Query(value = "select sum(population) from city where name = :cityName and country_code = :countryCode", nativeQuery = true)
-    Integer cityPopulation(
-            @Param("countryCode") String countryCode,
+    @Query(value = "select sum(population) from city where name = :cityName", nativeQuery = true)
+    Long cityPopulation(
             @Param("cityName") String cityName
     );
 

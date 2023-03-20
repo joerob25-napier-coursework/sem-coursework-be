@@ -19,7 +19,7 @@ public interface AdditionalCityLevelPopulationRepository extends JpaRepository<C
      * @return population of district
      */
     @Query(value = "select sum(population) from city where district = :district", nativeQuery = true)
-    Integer districtPopulation(
+    Long districtPopulation(
             @Param("district") String district
     );
 
@@ -29,7 +29,7 @@ public interface AdditionalCityLevelPopulationRepository extends JpaRepository<C
      * @return population of district
      */
     @Query(value = "select sum(population) from city where name = :cityName", nativeQuery = true)
-    Integer cityPopulation(
+    Long cityPopulation(
             @Param("cityName") String cityName
     );
 

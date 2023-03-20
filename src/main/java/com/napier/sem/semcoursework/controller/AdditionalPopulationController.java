@@ -23,7 +23,7 @@ public class AdditionalPopulationController {
     private final AdditionalCountryLevelPopulationRepository populationCountryLevelRepository;
     private final AdditionalCityLevelPopulationRepository populationCityLevelRepository;
     @GetMapping(value = "/population/world", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Integer> populationWorld() {
+    public ResponseEntity<Long> populationWorld() {
         return new ResponseEntity<>(populationCountryLevelRepository.worldPopulation(), HttpStatus.OK);
     }
 
@@ -34,7 +34,7 @@ public class AdditionalPopulationController {
      * @return population of continent, with a http status of 200
      */
     @GetMapping(value = "/population/continent/{continent}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Integer> populationContinent(
+    public ResponseEntity<Long> populationContinent(
             @PathVariable String continent
     ) {
         return new ResponseEntity<>(
@@ -49,7 +49,7 @@ public class AdditionalPopulationController {
      * @return population of region, with a http status of 200
      */
     @GetMapping(value = "/population/region/{region}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Integer> populationRegion(
+    public ResponseEntity<Long> populationRegion(
             @PathVariable String region
     ) {
         return new ResponseEntity<>(
@@ -63,7 +63,7 @@ public class AdditionalPopulationController {
      * @return population of country, with a http status of 200
      */
     @GetMapping(value = "/population/country/{country}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Integer> populationCountry(
+    public ResponseEntity<Long> populationCountry(
             @PathVariable String country
     ) {
         return new ResponseEntity<>(
@@ -78,7 +78,7 @@ public class AdditionalPopulationController {
      * @return population of district, with a http status of 200
      */
     @GetMapping(value = "/population/district/{district}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Integer> populationDistrict(
+    public ResponseEntity<Long> populationDistrict(
             @PathVariable String district
     ) {
         return new ResponseEntity<>(
