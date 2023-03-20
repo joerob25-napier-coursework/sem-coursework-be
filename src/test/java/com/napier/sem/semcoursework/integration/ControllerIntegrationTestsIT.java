@@ -146,12 +146,11 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
      */
     @Test
     public void languagesOrderedLargestToSmallest() throws Exception {
-        MockHttpServletResponse response = mockMvc.perform(get("/languages/report/1")
+        MockHttpServletResponse response = mockMvc.perform(get("/language/report/1")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
                         .accept(MediaType.APPLICATION_JSON_VALUE))
                 .andDo(print())
                 .andReturn().getResponse();
-
         assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
     }
 }
