@@ -11,4 +11,7 @@ import java.util.List;
 public interface PopulationRepository extends JpaRepository <Population, String>{
     @Query(value = "select * from v_continent_population", nativeQuery = true)
     List<Population> populationOfContinentsLivingInCities();
+
+    @Query(value = "select * from v_region_population", nativeQuery = true)
+    List<Population> populationOfRegionLivingInCities();
 }
