@@ -44,4 +44,12 @@ public class PopulationController {
     public ResponseEntity<List<Population>> populationCitiesInCountry() {
         return new ResponseEntity<>(populationRepository.populationOfCountryLivingInCities(), HttpStatus.OK);
     }
+    /**
+     *
+     * Return total population of the world
+     */
+    @GetMapping(value = "/report/4", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Population>> populationOfWorld() {
+        return new ResponseEntity<>(populationRepository.populationOfWorld(), HttpStatus.OK);
+    }
 }

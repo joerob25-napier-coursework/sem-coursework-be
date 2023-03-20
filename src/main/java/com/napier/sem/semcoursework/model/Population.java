@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Immutable;
 
 /**
- *This class represents a population object that contains population data for cities in each continent.
+ *This class represents a population object that contains population data for cities in each continent/region/country
  */
 @Data
 @Builder
@@ -18,12 +18,12 @@ import org.hibernate.annotations.Immutable;
 @Immutable
 public class Population {
     /**
-     *The name of the continent.
+     *The name of the continent/region/country.
      */
 @Id
     private String qID;
     /**
-     *The total population of the continent.
+     *The total population of the continent/region/country.
      */
     private String population;
     /**
