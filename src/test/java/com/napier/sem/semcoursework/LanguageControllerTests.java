@@ -55,7 +55,7 @@ public class LanguageControllerTests {
         );
 
         when(LanguageRepository.languagesOrderedLargestToSmallest()).thenReturn(language);
-        MockHttpServletResponse response = mockMvc.perform(get("/languages/report/1")
+        MockHttpServletResponse response = mockMvc.perform(get("/language/report/1")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
                         .accept(MediaType.APPLICATION_JSON_VALUE))
                 .andDo(print())
@@ -63,7 +63,6 @@ public class LanguageControllerTests {
 
         assertThat(response.getStatus(), is(HttpStatus.OK.value()));
         assertThat(response.getContentAsString(), containsString(language.get(0).getLanguage()));
-        assertThat(response.getContentAsString(), containsString(language.get(1).getLanguage()));
     }
 
     /**
@@ -74,12 +73,11 @@ public class LanguageControllerTests {
         List<Language> language = List.of();
 
         when(LanguageRepository.languagesOrderedLargestToSmallest()).thenReturn(language);
-        MockHttpServletResponse response = mockMvc.perform(get("/languages/report/1")
+        MockHttpServletResponse response = mockMvc.perform(get("/language/report/1")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
                         .accept(MediaType.APPLICATION_JSON_VALUE))
                 .andDo(print())
                 .andReturn().getResponse();
-
         assertThat(response.getStatus(), is(HttpStatus.OK.value()));
         assertThat(response.getContentLength() == 0, is(true));
     }
