@@ -15,7 +15,6 @@ public class Language {
     @Id
     @Column(name = "language")
     private String language;
-    private double percentage;
     @Column(name = "number_of_speakers")
     private Integer numberOfSpeakers;
     @Column(name = "percentage_of_world_population")
