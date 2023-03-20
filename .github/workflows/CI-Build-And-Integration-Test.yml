@@ -24,15 +24,15 @@ jobs:
       - name: Docker down
         run: docker compose down
 
-#  integration-test:
-#    runs-on: ubuntu-latest
-#
-#    steps:
-#      - uses: actions/checkout@v3
-#      - name: Set up jdk 19
-#        uses: actions/setup-java@v3
-#        with:
-#          java-version: '19'
-#          distribution: 'temurin'
-#      - name: Maven Integration Test
-#        run: mvn --batch-mode --update-snapshots clean verify
+  integration-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up jdk 19
+        uses: actions/setup-java@v3
+        with:
+          java-version: '19'
+          distribution: 'temurin'
+      - name: Maven Integration Test
+        run: mvn --batch-mode --update-snapshots clean verify
