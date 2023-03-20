@@ -17,7 +17,4 @@ public interface PopulationRepository extends JpaRepository <Population, String>
 
     @Query(value = "select * from v_country_population", nativeQuery = true)
     List<Population> populationOfCountryLivingInCities();
-
-    @Query(value = "select SUM(population) AS world_population FROM v_country_population", nativeQuery = true)
-    List<Population> populationOfWorld();
 }
