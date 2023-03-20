@@ -13,10 +13,8 @@ import lombok.NoArgsConstructor;
 @Table(name ="Language")
 public class Language {
     @Id
-    @Column(name = "country_code")
-    private String country_code;
+    @Column(name = "language")
     private String language;
-    private String is_official;
     private double percentage;
     @Column(name = "number_of_speakers")
     private Integer numberOfSpeakers;
