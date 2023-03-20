@@ -68,7 +68,7 @@ public class PopulationControllerTests {
     }
 
     /**
-     * Test to ensure a HttpStatus of OK for a valid report 1 request
+     * Test to ensure a HttpStatus of OK for a valid report 2 request
      */
     @Test
     public void populationOfRegionLivingInCities() throws Exception {
@@ -76,6 +76,24 @@ public class PopulationControllerTests {
 
         when(populationRepository.populationOfRegionLivingInCities()).thenReturn(population);
         MockHttpServletResponse response = mockMvc.perform(get("/population/report/2")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus(), is(HttpStatus.OK.value()));
+        assertThat(response.getContentLength() == 0, is(true));
+    }
+
+    /**
+     * Test to ensure a HttpStatus of OK for a valid report 3 request
+     */
+    @Test
+    public void populationOfCountryLivingInCities() throws Exception {
+        List<Population> population = List.of();
+
+        when(populationRepository.populationOfCountryLivingInCities()).thenReturn(population);
+        MockHttpServletResponse response = mockMvc.perform(get("/population/report/3")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
                         .accept(MediaType.APPLICATION_JSON_VALUE))
                 .andDo(print())
