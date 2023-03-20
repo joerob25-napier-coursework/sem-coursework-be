@@ -77,7 +77,7 @@ public class AdditionalPopulationController {
      * @param district is the sql where clause to query population for a particular country
      * @return population of district, with a http status of 200
      */
-    @GetMapping(value = "/population/country/{country}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/population/district/{district}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Integer> populationDistrict(
             @PathVariable String district
     ) {
