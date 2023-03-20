@@ -16,6 +16,5 @@ public class CapitalCity {
     private Integer id;
     private String name;
     private Integer population;
-
 }
 
