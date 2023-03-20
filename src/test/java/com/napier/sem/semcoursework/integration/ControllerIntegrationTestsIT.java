@@ -99,6 +99,10 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
 
         assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
     }
+    /**
+     * Test to ensure that a valid request to the population report 2 endpoint  returning a status
+     * of OK
+     */
     @Test
     public void populationOfRegionLivingInCities() throws Exception {
         MockHttpServletResponse response = mockMvc.perform(get("/population/report/2")
@@ -109,6 +113,10 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
 
         assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
     }
+    /**
+     * Test to ensure that a valid request to the population report 3 endpoint  returning a status
+     * of OK
+     */
     @Test
     public void populationOfCountryLivingInCities() throws Exception {
         MockHttpServletResponse response = mockMvc.perform(get("/population/report/3")
