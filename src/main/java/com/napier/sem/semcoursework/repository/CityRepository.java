@@ -24,7 +24,7 @@ public interface CityRepository extends JpaRepository<City, Integer> {
      * @param continent the name of the continent.
      * @return a list of City objects.
      */
-    @Query(value="select * from city where continent = :continent order by population desc", nativeQuery = true)
+    @Query(value="select * from city JOIN Country on city.country_code = country.code where continent = continent order by population desc", nativeQuery = true)
     List<City> largestToSmallestCitiesContinent(@Param("continent") String continent);
 
     /**
