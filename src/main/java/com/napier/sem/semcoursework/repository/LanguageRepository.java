@@ -17,6 +17,6 @@ public interface LanguageRepository extends JpaRepository<Language, String> {
      *
      * @return list of languages
      */
-    @Query(value = "SELECT language, SUM(population*percentage/100) AS number_of_speakers, ROUND(SUM(population*percentage/100)/(SELECT SUM(population) FROM country)*100, 2) AS percentage_of_world_population FROM country JOIN country_language ON code=country_code WHERE language In ('Chinese', 'English', 'Hindi', 'Spanish', 'Arabic') GROUP BY language ORDER BY number_of_speakers DESC", nativeQuery = true)
+    @Query(value = "SELECT language, Round(SUM(population*percentage / 100),0) AS number_of_speakers, ROUND(SUM(population*percentage / 100) / (SELECT SUM(population) FROM country) * 100, 2) AS percentage_of_world_population FROM country JOIN country_language ON country.code = country_language.country_code WHERE language IN ('Chinese', 'English', 'Hindi', 'Spanish', 'Arabic') GROUP BY language ORDER BY number_of_speakers DESC", nativeQuery = true)
     List<Language> languagesOrderedLargestToSmallest();
 }
