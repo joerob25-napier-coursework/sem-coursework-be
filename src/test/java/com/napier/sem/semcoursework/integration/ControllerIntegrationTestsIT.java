@@ -85,4 +85,43 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
 
         assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
     }
+    /**
+     * Test to ensure that a valid response from the population report 1 and returns a status of OK
+     */
+    @Test
+    public void populationOfContinentsLivingInCities() throws Exception {
+        MockHttpServletResponse response = mockMvc.perform(get("/population/report/1")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
+    }
+    /**
+     * Test to ensure that a valid response from the population report 2 and returns a status of OK
+     */
+    @Test
+    public void populationOfRegionLivingInCities() throws Exception {
+        MockHttpServletResponse response = mockMvc.perform(get("/population/report/2")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
+    }
+    /**
+     * Test to ensure that a valid response from the population report 3 and returns a status of OK
+     */
+    @Test
+    public void populationOfCountryLivingInCities() throws Exception {
+        MockHttpServletResponse response = mockMvc.perform(get("/population/report/3")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
+    }
 }
