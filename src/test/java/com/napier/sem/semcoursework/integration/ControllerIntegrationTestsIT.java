@@ -2,6 +2,7 @@ package com.napier.sem.semcoursework.integration;
 
 import com.napier.sem.semcoursework.ITTemplate;
 import com.napier.sem.semcoursework.model.Country;
+import com.napier.sem.semcoursework.model.Language;
 import org.hamcrest.core.Is;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -117,6 +118,35 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
     @Test
     public void populationOfCountryLivingInCities() throws Exception {
         MockHttpServletResponse response = mockMvc.perform(get("/population/report/3")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
+    }
+
+    /**
+     * Test to ensure a new country language can be inserted into the country language table and assert that the value is correct
+     */
+    @Test
+    public void countryLanguageDatabaseInsertTest() {
+        Language language = Language.builder()
+                .country_code("abc")
+                .language("French")
+                .is_official("T")
+                .percentage(76.7)
+                .build();
+        Language savedLanguage= languageRepository.save(language);
+        assertThat(savedLanguage, is(language));
+    }
+    /**
+     * Test to ensure that a valid request to the language report 1 endpoint without a repository stub returns a status
+     * of OK
+     */
+    @Test
+    public void languagesOrderedLargestToSmallest() throws Exception {
+        MockHttpServletResponse response = mockMvc.perform(get("/languages/report/1")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
                         .accept(MediaType.APPLICATION_JSON_VALUE))
                 .andDo(print())
