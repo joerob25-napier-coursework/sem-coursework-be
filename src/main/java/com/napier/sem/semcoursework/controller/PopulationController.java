@@ -36,4 +36,12 @@ public class PopulationController {
     public ResponseEntity<List<Population>> populationCitiesInRegion() {
         return new ResponseEntity<>(populationRepository.populationOfRegionLivingInCities(), HttpStatus.OK);
     }
+    /**
+     *
+     * Return list of population living in cities and those not in cities by country
+     */
+    @GetMapping(value = "/report/3", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Population>> populationCitiesInCountry() {
+        return new ResponseEntity<>(populationRepository.populationOfCountryLivingInCities(), HttpStatus.OK);
+    }
 }

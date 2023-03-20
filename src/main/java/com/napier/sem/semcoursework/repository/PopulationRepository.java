@@ -14,4 +14,7 @@ public interface PopulationRepository extends JpaRepository <Population, String>
 
     @Query(value = "select * from v_region_population", nativeQuery = true)
     List<Population> populationOfRegionLivingInCities();
+
+    @Query(value = "select * from v_country_population", nativeQuery = true)
+    List<Population> populationOfCountryLivingInCities();
 }

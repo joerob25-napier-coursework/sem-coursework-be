@@ -41,3 +41,24 @@ from region_populations regpops
          left join cities_populations cipops on (regpops.code = cipops.country_code)
 group by regpops.region
 );
+DROP VIEW IF EXISTS `v_country_population`;
+CREATE VIEW `v_country_population`(qID, population, in_cities, not_in_cities) as (
+with countries_populations as (
+    select code, name, sum(population) as country_population
+    from country
+    group by code, name
+),
+     cities_populations as (
+         select country_code, sum(population) as city_population
+         from city
+         group by country_code
+     )
+select
+    coupops.name,
+    coalesce(sum(coupops.country_population),0) as total_country_population,
+    coalesce(sum(cipops.city_population),0) as total_in_city_population,
+    coalesce(sum((coupops.country_population - cipops.city_population)),0) as total_not_in_city_population
+from countries_populations coupops
+         left join cities_populations cipops on (coupops.code = cipops.country_code)
+group by coupops.name
+);
