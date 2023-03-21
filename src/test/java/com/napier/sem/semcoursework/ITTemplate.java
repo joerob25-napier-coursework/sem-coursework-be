@@ -1,5 +1,6 @@
 package com.napier.sem.semcoursework;
 
+import com.napier.sem.semcoursework.repository.CapitalCityRepository;
 import com.napier.sem.semcoursework.repository.CountryRepository;
 import com.napier.sem.semcoursework.repository.PopulationRepository;
 import com.napier.sem.semcoursework.repository.LanguageRepository;
@@ -37,5 +38,8 @@ public abstract class ITTemplate {
     @Autowired
     protected LanguageRepository languageRepository;
 
+
+    @Autowired
+    protected CapitalCityRepository capitalcityRepository;
 
 }
