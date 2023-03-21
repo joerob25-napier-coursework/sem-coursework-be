@@ -6,6 +6,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ *This class represents a country object that contains country data.
+ */
+
 @Data
 @Builder
 @NoArgsConstructor

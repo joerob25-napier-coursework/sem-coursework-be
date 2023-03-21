@@ -1,12 +1,11 @@
 package com.napier.sem.semcoursework.model;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
+ /**
  *This class represents a population object that contains population data for cities in each continent.
  */
 @Data
