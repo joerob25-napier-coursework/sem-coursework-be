@@ -151,7 +151,7 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
         assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
     }
     /**
-     * Test to ensure that a valid request to the country report 1 endpoint without a repository stub returns a status
+     * Test to ensure that a valid request to the capital city report 1 endpoint without a repository stub returns a status
      * of OK
      */
     @Test
@@ -166,7 +166,7 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
     }
 
     /**
-     * Test to ensure that a valid request to the country report 2 endpoint without a repository stub returns a status
+     * Test to ensure that a valid request to the capital city report 2 endpoint without a repository stub returns a status
      * of OK
      */
     @Test

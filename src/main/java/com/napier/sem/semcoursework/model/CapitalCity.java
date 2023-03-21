@@ -13,8 +13,8 @@ import lombok.NoArgsConstructor;
 @Entity
 public class CapitalCity {
     @Id
-    private Integer id;
     private String name;
+    private String country;
     private Integer population;
 }
 
