@@ -28,7 +28,6 @@ public class CapitalCityController {
      *
      * @return ResponseEntity with a list of Capital City objects and an HTTP status of OK (200).
      */
-
     @GetMapping(value = "/report/1", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<CapitalCity>> largestToSmallestCapitalCitiesWorld(){
             return new ResponseEntity<>(CapitalCityRepository.largestToSmallestCapitalCitiesWorld(), HttpStatus.OK);
@@ -43,12 +42,12 @@ public class CapitalCityController {
     public ResponseEntity<List<CapitalCity>> largestToSmallestCapitalCitiesRegion(@PathVariable String region) {
          return new ResponseEntity<>(CapitalCityRepository.largestToSmallestCapitalCitiesRegion(region), HttpStatus.OK);
     }
+
     /**
      *
      * @param n is the sql limit clause to limit the top N populated capital cities in the world
      * @return list of the top N populated capital cities in the world in json format, with a http status of 200
      */
-
     @GetMapping(value = "/report/4/{n}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<CapitalCity>> topNPopulatedCapitalCities(@PathVariable int n) {
     try {

@@ -1,18 +1,18 @@
-/**
-
- The PopulationRepository interface provides methods for querying population data
- from the database using Spring
- */
 package com.napier.sem.semcoursework.repository;
 
-import com.napier.sem.semcoursework.model.Country;
 import com.napier.sem.semcoursework.model.Population;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+
+/**
+ The PopulationRepository interface provides methods for querying population data
+ from the database using Spring
+ */
+
 public interface PopulationRepository extends JpaRepository <Population, String>{
+
     /**
      * Returns a list of Population containing population data for all continents
      * living in cities

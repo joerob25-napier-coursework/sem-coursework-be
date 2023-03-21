@@ -19,5 +19,4 @@ public class Language {
     private Integer numberOfSpeakers;
     @Column(name = "percentage_of_world_population")
     private Double percentageOfWorldPopulation;
-
 }

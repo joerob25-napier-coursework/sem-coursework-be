@@ -85,6 +85,7 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
 
         assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
     }
+
     /**
      * Test to ensure that a valid response from the population report 1 and returns a status of OK
      */
@@ -98,6 +99,7 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
 
         assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
     }
+
     /**
      * Test to ensure that a valid response from the population report 2 and returns a status of OK
      */
@@ -111,6 +113,7 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
 
         assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
     }
+
     /**
      * Test to ensure that a valid response from the population report 3 and returns a status of OK
      */
@@ -134,8 +137,8 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
         /**
          *  Placeholder for CountryLanguage integration test
          */
-        
     }
+
     /**
      * Test to ensure that a valid request to the language report 1 endpoint without a repository stub returns a status
      * of OK
@@ -149,6 +152,7 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
                 .andReturn().getResponse();
         assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
     }
+
     /**
      * Test to ensure that a valid request to the capital city report 1 endpoint without a repository stub returns a status
      * of OK
@@ -179,6 +183,7 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
         assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
 
     }
+
     /**
      * Test to ensure that a valid response from the additional population report: world and returns a status of OK
      */
@@ -206,5 +211,4 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
 
         assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
     }
-
 }
