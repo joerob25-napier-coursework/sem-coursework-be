@@ -1,10 +1,7 @@
 package com.napier.sem.semcoursework.unit.controller;
 
-import com.napier.sem.semcoursework.controller.CountryController;
 import com.napier.sem.semcoursework.controller.PopulationController;
-import com.napier.sem.semcoursework.model.Country;
 import com.napier.sem.semcoursework.model.Population;
-import com.napier.sem.semcoursework.repository.CountryRepository;
 import com.napier.sem.semcoursework.repository.PopulationRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,10 +17,8 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
 
-import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;

@@ -9,7 +9,6 @@ import java.util.List;
 
 public interface CapitalCityRepository extends JpaRepository<CapitalCity, String> {
 
-
     /**
      * Retrieves a list of all cities in the world, sorted in descending order by population.
      *

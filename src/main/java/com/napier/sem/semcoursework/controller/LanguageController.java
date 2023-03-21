@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
 /**
  * @author Keira 40345843
  * Language controller exposes rest endpoints for language related report
@@ -21,6 +20,7 @@ import java.util.List;
 @CrossOrigin("*")
 @RequiredArgsConstructor
 public class LanguageController {
+
     /**
      * LanguageRepository is the interface to query database country_language table
      */
@@ -34,6 +34,4 @@ public class LanguageController {
     public ResponseEntity<List<Language>> languagesOrderedLargestToSmallest() {
         return new ResponseEntity<>(LanguageRepository.languagesOrderedLargestToSmallest(), HttpStatus.OK);
     }
-
-
 }

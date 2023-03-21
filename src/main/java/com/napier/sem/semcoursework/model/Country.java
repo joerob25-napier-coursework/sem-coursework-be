@@ -16,7 +16,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 public class Country {
-
     @Id
     @Column(name = "code")
     private String code;

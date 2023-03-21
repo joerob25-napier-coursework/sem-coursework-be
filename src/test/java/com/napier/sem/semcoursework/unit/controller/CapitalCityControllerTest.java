@@ -1,5 +1,6 @@
-package com.napier.sem.semcoursework.controller;
+package com.napier.sem.semcoursework.unit.controller;
 
+import com.napier.sem.semcoursework.controller.CapitalCityController;
 import com.napier.sem.semcoursework.model.CapitalCity;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,6 +27,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
  * @author Keira 40345843
  * Unit tests for the language related reports
  */
+
 @ActiveProfiles("unit")
 @RunWith(SpringRunner.class)
 @WebMvcTest(CapitalCityController.class)
