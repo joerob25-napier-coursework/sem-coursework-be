@@ -150,7 +150,36 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
                 .andReturn().getResponse();
         assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
     }
+    /**
+     * Test to ensure that a valid request to the capital city report 1 endpoint without a repository stub returns a status
+     * of OK
+     */
+    @Test
+    public void largestToSmallestCapitalCitiesWorld() throws Exception {
+        MockHttpServletResponse response = mockMvc.perform(get("/capitalcities/report/1")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andReturn().getResponse();
 
+        assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
+    }
+
+    /**
+     * Test to ensure that a valid request to the capital city report 2 endpoint without a repository stub returns a status
+     * of OK
+     */
+    @Test
+    public void largestToSmallestCapitalCitiesRegion() throws Exception {
+        MockHttpServletResponse response = mockMvc.perform(get("/capitalcities/report/2/test")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
+
+    }
     /**
      * Test to ensure that a valid response from the additional population report: world and returns a status of OK
      */
@@ -165,17 +194,4 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
         assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
     }
 
-    /**
-     * Test to ensure that a valid response from the additional population report and returns a status of OK
-     */
-    @Test
-    public void AdditionalCityLevelPopulationRepository() throws Exception {
-        MockHttpServletResponse response = mockMvc.perform(get("/population/population/city")
-                        .contentType(MediaType.APPLICATION_JSON_VALUE)
-                        .accept(MediaType.APPLICATION_JSON_VALUE))
-                .andDo(print())
-                .andReturn().getResponse();
-
-        assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
-    }
 }
