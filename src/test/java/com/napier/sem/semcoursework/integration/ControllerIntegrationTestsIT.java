@@ -130,12 +130,11 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
      */
     @Test
     public void countryLanguageDatabaseInsertTest() {
-    //    Language language = Language.builder()
-    ////            .language("French")
-     //           .percentage(76.7)
-    ////            .build();
-    ////    Language savedLanguage= languageRepository.save(language);
-    //    assertThat(savedLanguage, is(language));
+        // TODO: 21/03/2023  
+        /**
+         *  Placeholder for CountryLanguage integration test
+         */
+        
     }
     /**
      * Test to ensure that a valid request to the language report 1 endpoint without a repository stub returns a status
