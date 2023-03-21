@@ -33,7 +33,7 @@ public interface CityRepository extends JpaRepository<City, Integer> {
      * @param region the name of the region.
      * @return a list of City objects.
      */
-    @Query(value="select * from city where region = :region order by population desc", nativeQuery = true)
+    @Query(value="select * from city Join Country on city.country_code = country.code where region = region order by population desc", nativeQuery = true)
     List<City> largestToSmallestCitiesRegion(@Param("region") String region);
     /**
      * Retrieves a list of cities in a country, sorted in descending order by population.
