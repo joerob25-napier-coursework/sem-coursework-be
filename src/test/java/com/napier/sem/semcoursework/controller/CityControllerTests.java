@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpServletResponse;
@@ -42,22 +43,44 @@ public class CityControllerTests {
     @MockBean
     private CityRepository cityRepository;
     @Test
-    public void getAllCountriesOrderedLargestToSmallest() throws Exception {
+    public void largestToSmallestCitiesWorld() throws Exception {
         List<City> city = List.of(
                 City.builder().name("city1").build(),
                 City.builder().name("city2").build()
         );
+        when(cityRepository.largestToSmallestCitiesWorld()).thenReturn(city);
+        MockHttpServletResponse response = mockMvc.perform(get("/cities/report/1")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andReturn().getResponse();
 
-//        when(cityRepository.CitiesOrderedLargestToSmallest()).thenReturn(city);
-//        MockHttpServletResponse response = mockMvc.perform(get("/countries/report/1")
-//                        .contentType(MediaType.APPLICATION_JSON_VALUE)
-//                        .accept(MediaType.APPLICATION_JSON_VALUE))
-//                .andDo(print())
-//                .andReturn().getResponse();
-//
-//        assertThat(response.getStatus(), is(HttpStatus.OK.value()));
-//        assertThat(response.getContentAsString(), containsString(countries.get(0).getName()));
-//        assertThat(response.getContentAsString(), containsString(countries.get(1).getName()));
+        assertThat(response.getStatus(), is(HttpStatus.OK.value()));
+        assertThat(response.getContentAsString(), containsString(city.get(0).getName()));
+        assertThat(response.getContentAsString(), containsString(city.get(1).getName()));
 
 
-    }}
+    }
+
+        @Test
+        public void largestToSmallestCitiesContinent()  throws Exception {
+        String continent="Asia";
+         List<City> city = List.of(
+
+                City.builder().name("city1").build(),
+                City.builder().name("city2").build()
+        );
+        when(cityRepository.largestToSmallestCitiesContinent(continent)).thenReturn(city);
+        MockHttpServletResponse response = mockMvc.perform(get("/cities/report/2/Asia")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus(), is(HttpStatus.OK.value()));
+        assertThat(response.getContentAsString(), containsString(city.get(0).getName()));
+        assertThat(response.getContentAsString(), containsString(city.get(1).getName()));}
+
+
+
+}

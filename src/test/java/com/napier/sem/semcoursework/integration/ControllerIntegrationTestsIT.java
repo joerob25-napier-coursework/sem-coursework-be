@@ -162,6 +162,7 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
                 .andDo(print())
                 .andReturn().getResponse();
 
+<<<<<<< HEAD
         assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
     }
 
@@ -172,6 +173,28 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
     @Test
     public void largestToSmallestCapitalCitiesRegion() throws Exception {
         MockHttpServletResponse response = mockMvc.perform(get("/capitalcities/report/2/test")
+=======
+    /**
+     * Test to ensure that a valid response from the additional population report: world and returns a status of OK
+     */
+    @Test
+    public void AdditionalCountryLevelPopulationRepository() throws Exception {
+        MockHttpServletResponse response = mockMvc.perform(get("/population/population/world")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
+    }
+
+    /**
+     * Test to ensure that a valid response from the additional population report and returns a status of OK
+     */
+    @Test
+    public void AdditionalCityLevelPopulationRepository() throws Exception {
+        MockHttpServletResponse response = mockMvc.perform(get("/population/population/city")
+>>>>>>> coursework/develop
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
                         .accept(MediaType.APPLICATION_JSON_VALUE))
                 .andDo(print())

@@ -47,24 +47,6 @@ public interface AdditionalCountryLevelPopulationRepository extends JpaRepositor
             @Param("countryCode") String countryCode
     );
 
-    /**
-     * Query to retrieve population of a district
-     * @param district provided by the user
-     * @return population of district
-     */
-    @Query(value = "select sum(population) from city where district = :district", nativeQuery = true)
-    Long districtPopulation(
-            @Param("district") String district
-    );
 
-    /**
-     * Query to retrieve population of a city
-     * @param cityName provided by the user
-     * @return population of district
-     */
-    @Query(value = "select sum(population) from city where name = :cityName", nativeQuery = true)
-    Long cityPopulation(
-            @Param("cityName") String cityName
-    );
 
 }
