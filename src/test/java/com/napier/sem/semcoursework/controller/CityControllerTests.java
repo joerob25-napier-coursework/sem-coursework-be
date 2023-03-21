@@ -17,6 +17,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import javax.swing.plaf.synth.Region;
 import java.util.List;
 
 import static org.hamcrest.Matchers.containsString;
@@ -80,6 +81,34 @@ public class CityControllerTests {
         assertThat(response.getStatus(), is(HttpStatus.OK.value()));
         assertThat(response.getContentAsString(), containsString(city.get(0).getName()));
         assertThat(response.getContentAsString(), containsString(city.get(1).getName()));}
+
+
+
+
+
+
+
+
+    @Test
+    public void largestToSmallestCitiesRegion()  throws Exception {
+        String region="Gaza";
+        List<City> city = List.of(
+
+                City.builder().name("city1").build(),
+                City.builder().name("city2").build()
+        );
+        when(cityRepository.largestToSmallestCitiesRegion(region)).thenReturn(city);
+        MockHttpServletResponse response = mockMvc.perform(get("/cities/report/3/Gaza")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus(), is(HttpStatus.OK.value()));
+        assertThat(response.getContentAsString(), containsString(city.get(0).getName()));
+        assertThat(response.getContentAsString(), containsString(city.get(1).getName()));}
+
+
 
 
 
