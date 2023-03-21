@@ -11,7 +11,6 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
-
 /**
  * @author joe 40073047
  * Country controller exposes rest endpoints for country related reports

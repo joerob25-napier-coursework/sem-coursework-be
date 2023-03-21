@@ -5,27 +5,36 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Immutable;
 
 /**
- *This class represents a population object that contains population data for cities in each continent.
+ *This class represents a population object that contains population data for cities in each continent/region/country
  */
+
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@Immutable
 public class Population {
+
     /**
-     *The name of the continent.
+     *The name of the continent/region/country.
      */
-    private String continent;
+    @Id
+    private String qID;
+
     /**
-     *The total population of the continent.
+     *The total population of the continent/region/country.
      */
     private String population;
+
     /**
      *The percentage of the population living in cities.
      */
     private String in_cities;
+
     /**
      *The percentage of the population not living in cities.
      */
