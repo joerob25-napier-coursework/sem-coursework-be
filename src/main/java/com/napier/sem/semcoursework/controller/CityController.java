@@ -32,21 +32,28 @@ public class CityController {
 
     @GetMapping(value = "/report/1", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<City>> cityReport1() {
-        try {
-            return new ResponseEntity<>(cityRepository.largestToSmallestCitiesWorld(), HttpStatus.OK);
-        } catch (Exception e){
-            System.out.println(e.getLocalizedMessage());
-            return null;
-        }
 
+        return new ResponseEntity<>(cityRepository.largestToSmallestCitiesWorld(), HttpStatus.OK);
 
-
+        /**
+         * Endpoint method for retrieving a list of cities in a specific continent in order from largest to smallest.
+         *
+         * @param continent String representing the continent for which to retrieve city data.
+         * @return ResponseEntity with a list of City objects and an HTTP status of OK (200).
+         */
 
     }
     @GetMapping(value = "/report/2/{continent}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<City>> cityReport2(@PathVariable String continent) {
 
         return new ResponseEntity<>(cityRepository.largestToSmallestCitiesContinent(continent), HttpStatus.OK);
+
+        /**
+         * Endpoint method for retrieving a list of cities in a specific region in order from largest to smallest.
+         *
+         * @param region String representing the region for which to retrieve city data.
+         * @return ResponseEntity with a list of City objects and an HTTP status of OK (200).
+         */
 
     }
 
@@ -56,14 +63,24 @@ public class CityController {
         return new ResponseEntity<>(cityRepository.largestToSmallestCitiesRegion(region), HttpStatus.OK);
 
     }
-
+    /**
+     * Endpoint method for retrieving a list of cities in a specific country in order from largest to smallest.
+     *
+     * @param country String representing the country for which to retrieve city data.
+     * @return ResponseEntity with a list of City objects and an HTTP status of OK (200).
+     */
     @GetMapping(value = "/report/4/{country}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<City>> cityReport4(@PathVariable String country) {
 
         return new ResponseEntity<>(cityRepository.largestToSmallestCitiesCountry(country), HttpStatus.OK);
 
     }
-
+    /**
+     * Endpoint method for retrieving a list of cities in a specific district in order from largest to smallest.
+     *
+     * @param district String representing the district for which to retrieve city data.
+     * @return ResponseEntity with a list of City objects and an HTTP status of OK (200).
+     */
     @GetMapping(value = "/report/5/{district}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<City>> cityReport5(@PathVariable String district) {
 
