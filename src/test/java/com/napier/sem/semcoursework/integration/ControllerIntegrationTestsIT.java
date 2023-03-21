@@ -165,4 +165,18 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
         assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
     }
 
+    /**
+     * Test to ensure that a valid response from the additional population report: city and returns a status of OK
+     */
+    @Test
+    public void AdditionalCityLevelPopulationRepository() throws Exception {
+        MockHttpServletResponse response = mockMvc.perform(get("/population/population/city/potato")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
+    }
+
 }
