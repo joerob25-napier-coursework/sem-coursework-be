@@ -35,15 +35,5 @@ public class LanguageController {
         return new ResponseEntity<>(LanguageRepository.languagesOrderedLargestToSmallest(), HttpStatus.OK);
     }
 
-    /**
-     *
-     * @param Language is the sql where clause to query all languages spoken
-     * @return list of languages and the number of people who speak them from largest to smallest in json format, with a http status of 200
-     */
-    @GetMapping(value = "/report/2/{continent}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Language>> languagesOrderedLargestToSmallest(
-            @PathVariable String Language
-    ) {
-        return new ResponseEntity<>(LanguageRepository.languagesOrderedLargestToSmallest(), HttpStatus.OK);
-    }
+
 }

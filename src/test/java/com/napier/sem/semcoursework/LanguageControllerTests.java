@@ -69,7 +69,7 @@ public class LanguageControllerTests {
      * Test to ensure a HttpStatus of OK with no data in the countries table for a valid report 1 request
      */
     @org.junit.Test
-    public void allLanguagesOrderedLargestToSmallest_noCountriesInTable() throws Exception {
+    public void allLanguagesOrderedLargestToSmallest_noLanguagesInTable() throws Exception {
         List<Language> language = List.of();
 
         when(LanguageRepository.languagesOrderedLargestToSmallest()).thenReturn(language);
