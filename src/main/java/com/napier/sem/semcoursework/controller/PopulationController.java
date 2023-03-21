@@ -13,14 +13,39 @@ import java.util.List;
 /**
  * Controller for handling requests related to population.
  */
+
 @RestController
 @RequestMapping("/population")
 @CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 public class PopulationController {
+
     private final PopulationRepository populationRepository;
+
+    /**
+     *
+     * Return list of population living in cities and those not in cities by continent
+     */
     @GetMapping(value = "/report/1", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Population>> populationCitiesInContinent() {
-        return new ResponseEntity<>(populationRepository.populationCitiesInContinent(), HttpStatus.OK);
+        return new ResponseEntity<>(populationRepository.populationOfContinentsLivingInCities(), HttpStatus.OK);
+    }
+
+    /**
+     *
+     * Return list of population living in cities and those not in cities by region
+     */
+    @GetMapping(value = "/report/2", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Population>> populationCitiesInRegion() {
+        return new ResponseEntity<>(populationRepository.populationOfRegionLivingInCities(), HttpStatus.OK);
+    }
+
+    /**
+     *
+     * Return list of population living in cities and those not in cities by country
+     */
+    @GetMapping(value = "/report/3", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Population>> populationCitiesInCountry() {
+        return new ResponseEntity<>(populationRepository.populationOfCountryLivingInCities(), HttpStatus.OK);
     }
 }
