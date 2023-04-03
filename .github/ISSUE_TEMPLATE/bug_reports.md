@@ -1,6 +1,6 @@
 name: Bug Report
 description: File a bug report
-title: "[Bug]: "
+title: "[SEM-E-Bug]: "
 labels:
   - bug
   - triage
@@ -31,10 +31,22 @@ body:
     id: repository_or_controller
     attributes:
       label: Is this SQL or an API issue?
-      multiple: true
+      multiple: false
       options:
         - Repository/SQL
         - Controller/API
+        - Other (please specify)
+  - type: textarea
+    id: other_issue_specification
+    attributes:
+      label: Please specify the other issue
+      description: If you selected "Other (please specify)" above, please provide more details about the issue here.
+      placeholder: Describe the issue
+    validations:
+      required: false
+    conditions:
+      - field: repository_or_controller
+        value: Other (please specify)
   - type: textarea
     id: which_endpoint
     attributes:
@@ -51,8 +63,8 @@ body:
     id: terms
     attributes:
       label: Code of Conduct
-      description: By submitting this bug, you agree to adhere to our [Code of Conduct](https://github.com/joerob25/sem-coursework-be/blob/f15fab73ff709fa51f543000a749aadc22b3d5a7/docs/CODE_OF_CONDUCT)
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
       options:
-        - label: I agree to adhere to this project's Code of Conduct even if 1980s Bruce Willis told me not to
+        - label: I agree to follow this project's Code of Conduct
     validations:
       required: true
