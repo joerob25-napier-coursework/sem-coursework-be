@@ -76,8 +76,68 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
      * of OK
      */
     @Test
-    public void allCountriesInRegionOrderedLargestToSmallest() throws Exception {
+    public void allCountriesInContinentOrderedLargestToSmallest() throws Exception {
         MockHttpServletResponse response = mockMvc.perform(get("/countries/report/2/test")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
+    }
+
+    /**
+     * Test to ensure that a valid request to the country report 3 endpoint without a repository stub returns a status
+     * of OK
+     */
+    @Test
+    public void allCountriesInRegionOrderedLargestToSmallest() throws Exception {
+        MockHttpServletResponse response = mockMvc.perform(get("/countries/report/3/test")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
+    }
+
+    /**
+     * Test to ensure that a valid request to the country report 4 endpoint without a repository stub returns a status
+     * of OK
+     */
+    @Test
+    public void topNPopulatedCountries() throws Exception {
+        MockHttpServletResponse response = mockMvc.perform(get("/countries/report/4/1")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
+    }
+
+    /**
+     * Test to ensure that a valid request to the country report 5 endpoint without a repository stub returns a status
+     * of OK
+     */
+    @Test
+    public void topNPopulatedCountriesInContinent() throws Exception {
+        MockHttpServletResponse response = mockMvc.perform(get("/countries/report/5/3/Europe")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
+    }
+
+    /**
+     * Test to ensure that a valid request to the country report 6 endpoint without a repository stub returns a status
+     * of OK
+     */
+    @Test
+    public void topNPopulatedCountriesInRegion() throws Exception {
+        MockHttpServletResponse response = mockMvc.perform(get("/countries/report/6/3/region")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
                         .accept(MediaType.APPLICATION_JSON_VALUE))
                 .andDo(print())
