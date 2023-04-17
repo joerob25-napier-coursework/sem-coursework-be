@@ -1,7 +1,5 @@
 package com.napier.sem.semcoursework.controller;
 
-import com.napier.sem.semcoursework.model.Country;
-import com.napier.sem.semcoursework.model.Population;
 import com.napier.sem.semcoursework.repository.AdditionalCountryLevelPopulationRepository;
 import com.napier.sem.semcoursework.repository.AdditionalCityLevelPopulationRepository;
 import lombok.RequiredArgsConstructor;
@@ -10,23 +8,23 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 /**
  * Controller for handling requests related to population.
  */
+
 @RestController
 @RequestMapping("/population")
 @CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 public class AdditionalPopulationController {
+
     private final AdditionalCountryLevelPopulationRepository populationCountryLevelRepository;
     private final AdditionalCityLevelPopulationRepository populationCityLevelRepository;
+
     @GetMapping(value = "/population/world", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Long> populationWorld() {
         return new ResponseEntity<>(populationCountryLevelRepository.worldPopulation(), HttpStatus.OK);
     }
-
 
     /**
      *
@@ -41,8 +39,6 @@ public class AdditionalPopulationController {
                 populationCountryLevelRepository.continentPopulation(continent), HttpStatus.OK);
     }
 
-
-
     /**
      *
      * @param region is the sql where clause to query population for a particular region
@@ -56,7 +52,6 @@ public class AdditionalPopulationController {
                 populationCountryLevelRepository.regionPopulation(region), HttpStatus.OK);
     }
 
-
     /**
      *
      * @param country is the sql where clause to query population for a particular country
@@ -69,8 +64,6 @@ public class AdditionalPopulationController {
         return new ResponseEntity<>(
                 populationCountryLevelRepository.countryPopulation(country), HttpStatus.OK);
     }
-
-
 
     /**
      *
@@ -97,5 +90,4 @@ public class AdditionalPopulationController {
         return new ResponseEntity<>(
                 populationCityLevelRepository.cityPopulation(city), HttpStatus.OK);
     }
-
 }

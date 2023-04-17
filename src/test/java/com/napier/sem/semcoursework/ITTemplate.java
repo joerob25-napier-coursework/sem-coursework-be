@@ -32,14 +32,12 @@ public abstract class ITTemplate {
     @Autowired
     protected CountryRepository countryRepository;
 
-   @Autowired
-   protected PopulationRepository populationRepository;
+    @Autowired
+    protected PopulationRepository populationRepository;
 
     @Autowired
     protected LanguageRepository languageRepository;
 
-
     @Autowired
     protected CapitalCityRepository capitalcityRepository;
-
 }

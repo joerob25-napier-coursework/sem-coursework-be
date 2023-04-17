@@ -46,7 +46,4 @@ public interface AdditionalCountryLevelPopulationRepository extends JpaRepositor
     Long countryPopulation(
             @Param("countryCode") String countryCode
     );
-
-
-
 }

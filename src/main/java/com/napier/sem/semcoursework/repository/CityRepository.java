@@ -9,7 +9,6 @@ import java.util.List;
 
 public interface CityRepository extends JpaRepository<City, Integer> {
 
-
     /**
      * Retrieves a list of all cities in the world, sorted in descending order by population.
      *
@@ -35,14 +34,17 @@ public interface CityRepository extends JpaRepository<City, Integer> {
      */
     @Query(value="select * from city Join Country on city.country_code = country.code where region = region order by population desc", nativeQuery = true)
     List<City> largestToSmallestCitiesRegion(@Param("region") String region);
+
     /**
      * Retrieves a list of cities in a country, sorted in descending order by population.
      *
      * @param country the name of the country.
      * @return a list of City objects.
      */
+
     @Query(value="select * from city where country = :country order by population desc", nativeQuery = true)
     List<City> largestToSmallestCitiesCountry(@Param("country") String country);
+
     /**
      * Retrieves a list of cities in a district, sorted in descending order by population.
      *
@@ -51,11 +53,6 @@ public interface CityRepository extends JpaRepository<City, Integer> {
      */
     @Query(value="select * from city where district = :district order by population desc", nativeQuery = true)
     List<City> largestToSmallestCitiesDistrict(@Param("district") String district);
-
-
-
-
-
 
     /**
      * Returns the top N most populous cities in a specified continent.
@@ -96,6 +93,5 @@ public interface CityRepository extends JpaRepository<City, Integer> {
      */
     @Query(value="select * from city where district = :district order by population desc LIMIT :n", nativeQuery = true)
     List<City> topNCitiesDistrict(@Param("n") int n, @Param("district") String district);
-
 
 }
