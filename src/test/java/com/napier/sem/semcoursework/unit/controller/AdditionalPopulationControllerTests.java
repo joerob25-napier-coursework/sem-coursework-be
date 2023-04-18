@@ -1,7 +1,6 @@
 package com.napier.sem.semcoursework.unit.controller;
 
 import com.napier.sem.semcoursework.controller.AdditionalPopulationController;
-import com.napier.sem.semcoursework.model.Country;
 import com.napier.sem.semcoursework.repository.AdditionalCityLevelPopulationRepository;
 import com.napier.sem.semcoursework.repository.AdditionalCountryLevelPopulationRepository;
 import org.junit.Test;
@@ -15,8 +14,6 @@ import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-
-import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
@@ -58,8 +55,7 @@ public class AdditionalPopulationControllerTests {
      */
     @Test
     public void getWorldPopulation() throws Exception {
-
-        Long worldPop = Long.valueOf(12345678);
+        Long worldPop = 12345678L;
         when(countryLevelRepository.worldPopulation()).thenReturn(worldPop);
         MockHttpServletResponse response = mockMvc.perform(get("/population/population/world")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
@@ -69,9 +65,7 @@ public class AdditionalPopulationControllerTests {
 
         assertThat(response.getStatus(), is(HttpStatus.OK.value()));
         assertThat(response.getContentAsString(), containsString(worldPop.toString()));
-
     }
-
 
     /**
      * Test to ensure a HttpStatus of OK for a valid population/region/{region} request
@@ -79,7 +73,7 @@ public class AdditionalPopulationControllerTests {
     @Test
     public void getRegionPopulation() throws Exception {
         String region = "europe";
-        Long population = Long.valueOf(123456);
+        Long population = 123456L;
 
         when(countryLevelRepository.regionPopulation(region)).thenReturn(population);
         MockHttpServletResponse response = mockMvc.perform(get("/population/population/region/"+ region)
@@ -98,7 +92,7 @@ public class AdditionalPopulationControllerTests {
     @Test
     public void getContinentPopulation() throws Exception {
         String continent = "europe";
-        Long population = Long.valueOf(123456);
+        Long population = 123456L;
 
         when(countryLevelRepository.continentPopulation(continent)).thenReturn(population);
         MockHttpServletResponse response = mockMvc.perform(get("/population/population/continent/"+ continent)
@@ -118,7 +112,7 @@ public class AdditionalPopulationControllerTests {
     @Test
     public void getCountryPopulation() throws Exception {
         String country = "spain";
-        Long population = Long.valueOf(12346);
+        Long population = 12346L;
 
         when(countryLevelRepository.countryPopulation(country)).thenReturn(population);
         MockHttpServletResponse response = mockMvc.perform(get("/population/population/country/"+ country)
@@ -138,7 +132,7 @@ public class AdditionalPopulationControllerTests {
     @Test
     public void getDistrictPopulation() throws Exception {
         String district = "manchester";
-        Long population = Long.valueOf(12346);
+        Long population = 12346L;
 
         when(cityLevelRepository.districtPopulation(district)).thenReturn(population);
         MockHttpServletResponse response = mockMvc.perform(get("/population/population/district/"+ district)
@@ -150,9 +144,6 @@ public class AdditionalPopulationControllerTests {
         assertThat(response.getStatus(), is(HttpStatus.OK.value()));
         assertThat(response.getContentAsString(), containsString(population.toString()));
     }
-
-
-
 
     /**
      * Test to ensure a HttpStatus of OK for a valid population/city/{country} request
@@ -172,8 +163,4 @@ public class AdditionalPopulationControllerTests {
         assertThat(response.getStatus(), is(HttpStatus.OK.value()));
         assertThat(response.getContentAsString(), containsString(population.toString()));
     }
-
-
-
-
 }

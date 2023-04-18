@@ -78,7 +78,7 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
      * of OK
      */
     @Test
-    public void allCountriesInRegionOrderedLargestToSmallest() throws Exception {
+    public void allCountriesInContinentOrderedLargestToSmallest() throws Exception {
         MockHttpServletResponse response = mockMvc.perform(get("/countries/report/2/test")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
                         .accept(MediaType.APPLICATION_JSON_VALUE))
@@ -87,6 +87,67 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
 
         assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
     }
+
+    /**
+     * Test to ensure that a valid request to the country report 3 endpoint without a repository stub returns a status
+     * of OK
+     */
+    @Test
+    public void allCountriesInRegionOrderedLargestToSmallest() throws Exception {
+        MockHttpServletResponse response = mockMvc.perform(get("/countries/report/3/test")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
+    }
+
+    /**
+     * Test to ensure that a valid request to the country report 4 endpoint without a repository stub returns a status
+     * of OK
+     */
+    @Test
+    public void topNPopulatedCountries() throws Exception {
+        MockHttpServletResponse response = mockMvc.perform(get("/countries/report/4/1")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
+    }
+
+    /**
+     * Test to ensure that a valid request to the country report 5 endpoint without a repository stub returns a status
+     * of OK
+     */
+    @Test
+    public void topNPopulatedCountriesInContinent() throws Exception {
+        MockHttpServletResponse response = mockMvc.perform(get("/countries/report/5/3/Europe")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
+    }
+
+    /**
+     * Test to ensure that a valid request to the country report 6 endpoint without a repository stub returns a status
+     * of OK
+     */
+    @Test
+    public void topNPopulatedCountriesInRegion() throws Exception {
+        MockHttpServletResponse response = mockMvc.perform(get("/countries/report/6/3/region")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
+    }
+
     /**
      * Test to ensure that a valid response from the population report 1 and returns a status of OK
      */
@@ -100,6 +161,7 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
 
         assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
     }
+
     /**
      * Test to ensure that a valid response from the population report 2 and returns a status of OK
      */
@@ -113,6 +175,7 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
 
         assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
     }
+
     /**
      * Test to ensure that a valid response from the population report 3 and returns a status of OK
      */
@@ -141,6 +204,7 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
         CountryLanguage saveCl = countryLanguageRepository.save(cl);
         assertThat(saveCl, is(cl));
     }
+
     /**
      * Test to ensure that a valid request to the language report 1 endpoint without a repository stub returns a status
      * of OK
@@ -154,6 +218,7 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
                 .andReturn().getResponse();
         assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
     }
+
     /**
      * Test to ensure that a valid request to the capital city report 1 endpoint without a repository stub returns a status
      * of OK
@@ -184,6 +249,7 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
         assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
 
     }
+
     /**
      * Test to ensure that a valid response from the additional population report: world and returns a status of OK
      */
@@ -198,4 +264,17 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
         assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
     }
 
+    /**
+     * Test to ensure that a valid response from the additional population report: city and returns a status of OK
+     */
+    @Test
+    public void AdditionalCityLevelPopulationRepository() throws Exception {
+        MockHttpServletResponse response = mockMvc.perform(get("/population/population/city/potato")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
+    }
 }

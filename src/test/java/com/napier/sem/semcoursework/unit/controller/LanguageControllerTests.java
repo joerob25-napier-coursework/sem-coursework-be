@@ -1,8 +1,9 @@
-package com.napier.sem.semcoursework;
+package com.napier.sem.semcoursework.unit.controller;
 
 import com.napier.sem.semcoursework.controller.LanguageController;
 import com.napier.sem.semcoursework.model.Language;
 import com.napier.sem.semcoursework.repository.LanguageRepository;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -48,7 +49,7 @@ public class LanguageControllerTests {
     /**
      * Test to ensure a HttpStatus of OK for a valid report 1 request
      */
-    @org.junit.Test
+    @Test
     public void getAllLanguagesOrderedLargestToSmallest() throws Exception {
         List<Language> language = List.of(
                 Language.builder().language("language1").build()
@@ -68,7 +69,7 @@ public class LanguageControllerTests {
     /**
      * Test to ensure a HttpStatus of OK with no data in the countries table for a valid report 1 request
      */
-    @org.junit.Test
+    @Test
     public void allLanguagesOrderedLargestToSmallest_noLanguagesInTable() throws Exception {
         List<Language> language = List.of();
 
@@ -82,5 +83,3 @@ public class LanguageControllerTests {
         assertThat(response.getContentLength() == 0, is(true));
     }
 }
-
-

@@ -29,8 +29,8 @@ public abstract class ITTemplate {
     @Autowired
     protected CountryRepository countryRepository;
 
-   @Autowired
-   protected PopulationRepository populationRepository;
+    @Autowired
+    protected PopulationRepository populationRepository;
 
     @Autowired
     protected LanguageRepository languageRepository;
@@ -40,5 +40,4 @@ public abstract class ITTemplate {
 
     @Autowired
     protected CountryLanguageRepository countryLanguageRepository;
-
 }

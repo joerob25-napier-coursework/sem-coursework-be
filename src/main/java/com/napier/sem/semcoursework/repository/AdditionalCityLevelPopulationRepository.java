@@ -11,8 +11,6 @@ import org.springframework.data.repository.query.Param;
  */
 public interface AdditionalCityLevelPopulationRepository extends JpaRepository<City, String> {
 
-
-
     /**
      * Query to retrieve population of a district
      * @param district provided by the user
@@ -32,5 +30,4 @@ public interface AdditionalCityLevelPopulationRepository extends JpaRepository<C
     Long cityPopulation(
             @Param("cityName") String cityName
     );
-
 }

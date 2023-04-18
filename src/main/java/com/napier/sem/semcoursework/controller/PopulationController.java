@@ -13,11 +13,13 @@ import java.util.List;
 /**
  * Controller for handling requests related to population.
  */
+
 @RestController
 @RequestMapping("/population")
 @CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 public class PopulationController {
+
     private final PopulationRepository populationRepository;
 
     /**
@@ -28,6 +30,7 @@ public class PopulationController {
     public ResponseEntity<List<Population>> populationCitiesInContinent() {
         return new ResponseEntity<>(populationRepository.populationOfContinentsLivingInCities(), HttpStatus.OK);
     }
+
     /**
      *
      * Return list of population living in cities and those not in cities by region
@@ -36,6 +39,7 @@ public class PopulationController {
     public ResponseEntity<List<Population>> populationCitiesInRegion() {
         return new ResponseEntity<>(populationRepository.populationOfRegionLivingInCities(), HttpStatus.OK);
     }
+
     /**
      *
      * Return list of population living in cities and those not in cities by country
