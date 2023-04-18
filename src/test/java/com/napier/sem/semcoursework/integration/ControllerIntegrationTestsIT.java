@@ -2,6 +2,7 @@ package com.napier.sem.semcoursework.integration;
 
 import com.napier.sem.semcoursework.ITTemplate;
 import com.napier.sem.semcoursework.model.Country;
+import com.napier.sem.semcoursework.model.CountryLanguage;
 import org.hamcrest.core.Is;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -130,11 +131,15 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
      */
     @Test
     public void countryLanguageDatabaseInsertTest() {
-        // TODO: 21/03/2023  
-        /**
-         *  Placeholder for CountryLanguage integration test
-         */
-        
+        CountryLanguage cl = CountryLanguage.builder()
+                .countryCode("ABC")
+                .language("Hindi")
+                .isOfficial(true)
+                .percentage(20.1)
+                .build();
+
+        CountryLanguage saveCl = countryLanguageRepository.save(cl);
+        assertThat(saveCl, is(cl));
     }
     /**
      * Test to ensure that a valid request to the language report 1 endpoint without a repository stub returns a status
