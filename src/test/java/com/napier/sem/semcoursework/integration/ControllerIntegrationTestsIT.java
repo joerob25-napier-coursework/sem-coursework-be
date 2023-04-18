@@ -1,8 +1,9 @@
 package com.napier.sem.semcoursework.integration;
 
 import com.napier.sem.semcoursework.ITTemplate;
+import com.napier.sem.semcoursework.model.utils.CompositeKey;
 import com.napier.sem.semcoursework.model.Country;
-import com.napier.sem.semcoursework.model.CountryLanguage;
+import com.napier.sem.semcoursework.model.utils.CountryLanguage;
 import org.hamcrest.core.Is;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -132,8 +133,7 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
     @Test
     public void countryLanguageDatabaseInsertTest() {
         CountryLanguage cl = CountryLanguage.builder()
-                .countryCode("ABC")
-                .language("Hindi")
+                .compositeKey(CompositeKey.builder().countryCode("PAK").language("idfj").build())
                 .isOfficial(true)
                 .percentage(20.1)
                 .build();

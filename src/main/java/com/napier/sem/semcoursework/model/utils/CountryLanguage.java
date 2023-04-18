@@ -1,7 +1,8 @@
-package com.napier.sem.semcoursework.model;
+package com.napier.sem.semcoursework.model.utils;
 
+import com.napier.sem.semcoursework.model.utils.CompositeKey;
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,10 +14,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 public class CountryLanguage {
-    @Id
-    private String countryCode;
-    private String language;
+    @EmbeddedId
+    private CompositeKey compositeKey;
     private boolean isOfficial;
     private double percentage;
 
 }
+
