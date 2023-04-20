@@ -1,5 +1,8 @@
 # sem-coursework
 Coursework for Team E
+![workflow](https://github.com/joerob25/sem-coursework-be/actions/workflows/CI-Release.yml/badge.svg?branch=main>)
+![workflow](https://github.com/joerob25/sem-coursework-be/actions/workflows/CI-Release.yml/badge.svg?branch=develop>)
+
 
 
 There are 32 requirements in total. We have met 32 of the requirements
@@ -38,6 +41,3 @@ There are 32 requirements in total. We have met 32 of the requirements
 | 30  | The population of a district.                                                                                      | Yes | image      |
 | 31  | The population of a city                                                                                           | Yes | image      |
 | 32  | The number of people who speak the languages Chinese, English, Hindi, Spanish and Arabic from greatest to smallest | Yes | image      |
-
-
-Commit example - ET, AS, KW
