@@ -1,6 +1,7 @@
 package com.napier.sem.semcoursework.unit.controller;
 
 import com.napier.sem.semcoursework.controller.CityController;
+import com.napier.sem.semcoursework.model.CapitalCity;
 import com.napier.sem.semcoursework.model.City;
 import com.napier.sem.semcoursework.repository.CityRepository;
 import org.junit.Test;
@@ -162,4 +163,23 @@ public class CityControllerTests {
         assertThat(response.getContentAsString(), containsString(city.get(0).getName()));
         assertThat(response.getContentAsString(), containsString(city.get(1).getName()));
     }
+
+    @Test
+    public void topNCitiesInContLargestToSmallest()  throws Exception {
+        int nPopulated = 2;
+        List<City> cities = List.of(
+                City.builder().name("city1").build(),
+                City.builder().name("city2").build()
+        );
+
+        when(cityRepository.topNContinent(nPopulated, "Asia")).thenReturn(cities);
+        MockHttpServletResponse response = mockMvc.perform(get("/cities/report/6/5/Asia")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus(), is(HttpStatus.OK.value()));
+    }
+
 }

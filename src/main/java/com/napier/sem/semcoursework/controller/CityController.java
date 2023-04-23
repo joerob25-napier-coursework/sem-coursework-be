@@ -2,12 +2,14 @@ package com.napier.sem.semcoursework.controller;
 
 
 import com.napier.sem.semcoursework.model.City;
+import com.napier.sem.semcoursework.model.Country;
 import com.napier.sem.semcoursework.repository.CityRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -75,5 +77,17 @@ public class CityController {
     @GetMapping(value = "/report/5/{district}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<City>> cityReport5(@PathVariable String district) {
         return new ResponseEntity<>(cityRepository.largestToSmallestCitiesDistrict(district), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/report/6/{n}/{continent}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<City>> topNPopulatedCountriesInContinent(
+            @PathVariable int n, @PathVariable String continent
+    ) {
+        try {
+            return new ResponseEntity<>(
+                    cityRepository.topNContinent(n, continent), HttpStatus.OK);
+        } catch (NumberFormatException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Please provide a number");
+        }
     }
 }
