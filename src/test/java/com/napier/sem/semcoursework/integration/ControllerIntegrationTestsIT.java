@@ -58,6 +58,22 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
             assertThat(savedCountry, is(country));
     }
 
+
+    /**
+     * Test to ensure a new country language can be inserted into the country language table and assert that the value is correct
+     */
+    @Test
+    public void countryLanguageDatabaseInsertTest() {
+        CountryLanguage cl = CountryLanguage.builder()
+                .compositeKey(CompositeKey.builder().countryCode("PAK").language("idfj").build())
+                .isOfficial(true)
+                .percentage(20.1)
+                .build();
+
+        CountryLanguage saveCl = countryLanguageRepository.save(cl);
+        assertThat(saveCl, is(cl));
+    }
+
     /**
      * Test to ensure that a valid request to the country report 1 endpoint without a repository stub returns a status
      * of OK
@@ -149,6 +165,81 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
     }
 
     /**
+     * Tests the functionality of retrieving all cities in the world, sorted by population from largest to smallest.
+     * @throws Exception if an error occurs while performing the HTTP request.
+     */
+    @Test
+    public void citiesInTheWorldLargestToSmallest() throws Exception {
+        MockHttpServletResponse response = mockMvc.perform(get("/cities/report/1")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
+    }
+
+    /**
+     * Tests the functionality of retrieving cities in a continent, sorted by population from largest to smallest.
+     * @throws Exception if an error occurs while performing the HTTP request.
+     */
+    @Test
+    public void citiesInContinentLargestToSmallest() throws Exception {
+        MockHttpServletResponse response = mockMvc.perform(get("/cities/report/2/Europe")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
+    }
+
+    /**
+     * Tests the functionality of retrieving cities in a region, sorted by population from largest to smallest.
+     * @throws Exception if an error occurs while performing the HTTP request.
+     */
+    @Test
+    public void citiesInRegionLargestToSmallest() throws Exception {
+        MockHttpServletResponse response = mockMvc.perform(get("/cities/report/3/Yorkshire")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
+    }
+
+    /**
+     * Tests the functionality of retrieving cities in a country, sorted by population from largest to smallest.
+     * @throws Exception if an error occurs while performing the HTTP request.
+     */
+    @Test
+    public void citiesInCountryLargestToSmallest() throws Exception {
+        MockHttpServletResponse response = mockMvc.perform(get("/cities/report/4/France")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
+    }
+
+    /**
+     * Tests the functionality of retrieving cities in a district, sorted by population from largest to smallest.
+     * @throws Exception if an error occurs while performing the HTTP request.
+     */
+    @Test
+    public void citiesInDistrictLargestToSmallest() throws Exception {
+        MockHttpServletResponse response = mockMvc.perform(get("/cities/report/5/ksd")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
+    }
+
+    /**
      * Test to ensure that a valid response from the population report 1 and returns a status of OK
      */
     @Test
@@ -191,21 +282,6 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
     }
 
     /**
-     * Test to ensure a new country language can be inserted into the country language table and assert that the value is correct
-     */
-    @Test
-    public void countryLanguageDatabaseInsertTest() {
-        CountryLanguage cl = CountryLanguage.builder()
-                .compositeKey(CompositeKey.builder().countryCode("PAK").language("idfj").build())
-                .isOfficial(true)
-                .percentage(20.1)
-                .build();
-
-        CountryLanguage saveCl = countryLanguageRepository.save(cl);
-        assertThat(saveCl, is(cl));
-    }
-
-    /**
      * Test to ensure that a valid request to the language report 1 endpoint without a repository stub returns a status
      * of OK
      */
@@ -239,7 +315,7 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
      * of OK
      */
     @Test
-    public void largestToSmallestCapitalCitiesRegion() throws Exception {
+    public void largestToSmallestCapitalCitiesContinent() throws Exception {
         MockHttpServletResponse response = mockMvc.perform(get("/capitalcities/report/2/test")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .accept(MediaType.APPLICATION_JSON_VALUE))
@@ -247,15 +323,131 @@ public class ControllerIntegrationTestsIT extends ITTemplate {
                 .andReturn().getResponse();
 
         assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
-
     }
+
+    /**
+     * Test to ensure that a valid request to the capital city report 3 endpoint without a repository stub returns a status
+     * of OK
+     */
+    @Test
+    public void largestToSmallestCapitalCitiesRegion() throws Exception {
+        MockHttpServletResponse response = mockMvc.perform(get("/capitalcities/report/3/test")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
+    }
+
+    /**
+     * Test to ensure that a valid request to the country report 4 endpoint without a repository stub returns a status
+     * of OK
+     */
+    @Test
+    public void topNPopulatedCapitalCities() throws Exception {
+        MockHttpServletResponse response = mockMvc.perform(get("/capitalcities/report/4/1")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
+    }
+
+    /**
+     * Test to ensure that a valid request to the country report 5 endpoint without a repository stub returns a status
+     * of OK
+     */
+    @Test
+    public void topNPopulatedCapitalCitiesInContinent() throws Exception {
+        MockHttpServletResponse response = mockMvc.perform(get("/capitalcities/report/5/3/Europe")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
+    }
+
+    /**
+     * Test to ensure that a valid request to the country report 6 endpoint without a repository stub returns a status
+     * of OK
+     */
+    @Test
+    public void topNPopulatedCapitalCitiesInRegion() throws Exception {
+        MockHttpServletResponse response = mockMvc.perform(get("/capitalcities/report/6/3/region")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
+    }
+
 
     /**
      * Test to ensure that a valid response from the additional population report: world and returns a status of OK
      */
     @Test
-    public void AdditionalCountryLevelPopulationRepository() throws Exception {
+    public void AdditionalWorldLevelPopulationRepository() throws Exception {
         MockHttpServletResponse response = mockMvc.perform(get("/population/population/world")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
+    }
+
+    /**
+     * Test to ensure that a valid response from the additional population report: continent and returns a status of OK
+     */
+    @Test
+    public void AdditionalContinentLevelPopulationRepository() throws Exception {
+        MockHttpServletResponse response = mockMvc.perform(get("/population/population/continent/Asia")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
+    }
+
+    /**
+     * Test to ensure that a valid response from the additional population report: region and returns a status of OK
+     */
+    @Test
+    public void AdditionalRegionLevelPopulationRepository() throws Exception {
+        MockHttpServletResponse response = mockMvc.perform(get("/population/population/region/abc")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
+    }
+
+    /**
+     * Test to ensure that a valid response from the additional population report: country and returns a status of OK
+     */
+    @Test
+    public void AdditionalCountryLevelPopulationRepository() throws Exception {
+        MockHttpServletResponse response = mockMvc.perform(get("/population/population/country/abc")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus(), Is.is(HttpStatus.OK.value()));
+    }
+
+    /**
+     * Test to ensure that a valid response from the additional population report: district and returns a status of OK
+     */
+    @Test
+    public void AdditionalDistrictLevelPopulationRepository() throws Exception {
+        MockHttpServletResponse response = mockMvc.perform(get("/population/population/district/abc")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
                         .accept(MediaType.APPLICATION_JSON_VALUE))
                 .andDo(print())

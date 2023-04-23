@@ -1,17 +1,22 @@
 package com.napier.sem.semcoursework;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 /**
- *Test for no errors in code
+ * Ensure that Spring is configured correctly and database connection to run the flyway
  */
-@ActiveProfiles("unit")
+
+@Slf4j
 @SpringBootTest
 class SemCourseworkApplicationTests {
 
 	@Test
 	void contextLoads() {
+		log.info("Running Flyway database migration");
+		assertTrue(true);
 	}
-
 }

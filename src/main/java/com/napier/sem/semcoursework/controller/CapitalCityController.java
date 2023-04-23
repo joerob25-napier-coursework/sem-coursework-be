@@ -33,11 +33,21 @@ public class CapitalCityController {
             return new ResponseEntity<>(CapitalCityRepository.largestToSmallestCapitalCitiesWorld(), HttpStatus.OK);
         }
 
+    /**
+     * Returns a list of capital cities in the specified continent, sorted by population from largest to smallest.
+     * @param continent the name of the continent to retrieve capital cities from.
+     * @return a ResponseEntity containing a list of CapitalCity objects and an HTTP status code indicating success or failure.
+     */
     @GetMapping(value = "/report/2/{continent}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<CapitalCity>> largestToSmallestCapitalCitiesContinent (@PathVariable String continent) {
          return new ResponseEntity<>(CapitalCityRepository.largestToSmallestCapitalCitiesContinent(continent), HttpStatus.OK);
     }
 
+    /**
+     * Returns a list of capital cities in the specified region, sorted by population from largest to smallest.
+     * @param region the name of the region to retrieve capital cities from.
+     * @return a ResponseEntity containing a list of CapitalCity objects and an HTTP status code indicating success or failure.
+     */
     @GetMapping(value = "/report/3/{region}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<CapitalCity>> largestToSmallestCapitalCitiesRegion(@PathVariable String region) {
          return new ResponseEntity<>(CapitalCityRepository.largestToSmallestCapitalCitiesRegion(region), HttpStatus.OK);

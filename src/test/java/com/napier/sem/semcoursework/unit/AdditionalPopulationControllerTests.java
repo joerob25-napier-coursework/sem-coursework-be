@@ -1,4 +1,4 @@
-package com.napier.sem.semcoursework.unit.controller;
+package com.napier.sem.semcoursework.unit;
 
 import com.napier.sem.semcoursework.controller.AdditionalPopulationController;
 import com.napier.sem.semcoursework.repository.AdditionalCityLevelPopulationRepository;
