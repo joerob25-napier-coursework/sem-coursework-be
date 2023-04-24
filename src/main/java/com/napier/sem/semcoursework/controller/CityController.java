@@ -80,12 +80,48 @@ public class CityController {
     }
 
     @GetMapping(value = "/report/6/{n}/{continent}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<City>> topNPopulatedCountriesInContinent(
+    public ResponseEntity<List<City>> topNCitiesInContinent(
             @PathVariable int n, @PathVariable String continent
     ) {
         try {
             return new ResponseEntity<>(
                     cityRepository.topNContinent(n, continent), HttpStatus.OK);
+        } catch (NumberFormatException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Please provide a number");
+        }
+    }
+
+    @GetMapping(value = "/report/7/{n}/{region}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<City>> topNCitiesInRegion(
+            @PathVariable int n, @PathVariable String region
+    ) {
+        try {
+            return new ResponseEntity<>(
+                    cityRepository.topNCitiesRegion(n, region), HttpStatus.OK);
+        } catch (NumberFormatException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Please provide a number");
+        }
+    }
+
+    @GetMapping(value = "/report/8/{n}/{district}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<City>> topNCitiesInDistrict(
+            @PathVariable int n, @PathVariable String district
+    ) {
+        try {
+            return new ResponseEntity<>(
+                    cityRepository.topNCitiesDistrict(n, district), HttpStatus.OK);
+        } catch (NumberFormatException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Please provide a number");
+        }
+    }
+
+    @GetMapping(value = "/report/9/{n}/{country}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<City>> topNCitiesInCountry(
+            @PathVariable int n, @PathVariable String country
+    ) {
+        try {
+            return new ResponseEntity<>(
+                    cityRepository.topNCitiesCountry(n, country), HttpStatus.OK);
         } catch (NumberFormatException e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Please provide a number");
         }
