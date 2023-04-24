@@ -26,9 +26,9 @@ jobs:
       - uses: 'marvinpinto/action-automatic-releases@latest'
         with:
           repo_token: '${{ secrets.GITHUB_TOKEN }}'
-          prerelease: true
-          title: "sprint 3 - dev build"
-          automatic_release_tag: 'latest'
+          prerelease: false
+          title: "Sprint 4 - Code Review"
+          automatic_release_tag: '1.0.0'
           files: |
             ./target/*.jar
       - name: Login Container Registry
