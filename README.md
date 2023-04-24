@@ -20,7 +20,7 @@ Release: [![Releases](https://img.shields.io/github/release/joerob25/sem-coursew
 
 License [![LICENSE](https://img.shields.io/github/license/joerob25/sem-coursework-be.svg?style=flat-square)](https://github.com/joerob25/sem-coursework-be/blob/master/LICENSE)
 
-There are 32 requirements in total. We have met 32 of the requirements
+There are 32 requirements in total. We have met 32 of the requirements which is 100%.
 
 | ID  | Name                                                                                                               | Met | Screenshot |
 |-----|--------------------------------------------------------------------------------------------------------------------|-----|------------|
