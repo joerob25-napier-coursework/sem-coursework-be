@@ -1,7 +1,7 @@
 # sem-coursework
 Coursework for Team E
 
-![workflow](https://github.com/joerob25/sem-coursework-be/actions/workflows/CI-Release.yml/badge.svg?branch=main)
+![workflow](https:///github.com/actions/workflow/status/joerob25/sem-coursework-be/CI-Release.yml+?branch=main)
 ![workflow](https://github.com/joerob25/sem-coursework-be/actions/workflows/CI-Release.yml/badge.svg?branch=develop)
 
 
