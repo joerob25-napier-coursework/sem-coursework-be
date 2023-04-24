@@ -20,8 +20,8 @@
 	<properties>
 		<java.version>19</java.version>
 		<revision>1.0-SNAPSHOT</revision>
-		<testcontainers.version>1.17.6</testcontainers.version>
-		<jacoco.version>0.8.8</jacoco.version>
+		<testcontainers.version>1.18.0</testcontainers.version>
+		<jacoco.version>0.8.9</jacoco.version>
 		<line.coverage>0.0</line.coverage>
 		<branch.coverage>0.0</branch.coverage>
 	</properties>
