@@ -1,7 +1,14 @@
 # sem-coursework
 Coursework for Team E
 
-Github workflow status: ![workflow](https://github.com/joerob25/sem-coursework-be/actions/workflows/CI-Build-And-Integration-Test.yml/badge.svg)
+Github workflow status: 
+
+![workflow](https://github.com/joerob25/sem-coursework-be/actions/workflows/CI-Build-And-Integration-Test.yml/badge.svg)
+
+![workflow](https://github.com/joerob25/sem-coursework-be/actions/workflows/CI-Release.yml/badge.svg)
+
+![workflow](https://github.com/joerob25/sem-coursework-be/actions/workflows/CI-Unit-Test.yml/badge.svg)
+
 
 Github main branch state: ![GitHub branch checks state](https://img.shields.io/github/checks-status/joerob25/sem-coursework-be/main)
 
