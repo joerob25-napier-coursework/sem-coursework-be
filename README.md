@@ -1,11 +1,11 @@
 # sem-coursework
 Coursework for Team E
 
-Github main branch state: ![GitHub branch checks state](https://img.shields.io/github/checks-status/joerob25/sem-coursework-be/main)
+Github workflow staatus: ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/joerob25/sem-coursework-be/CI-Build-And-Integration-Test.yml)
 
 Github develop branch state: ![GitHub branch checks state](https://img.shields.io/github/checks-status/joerob25/sem-coursework-be/develop)
 
-code coverage: [![codecov.io](https://codecov.io/github/joerob25/sem-coursework-be/coverage.svg?branch=master)] (https://codecov.io/github/joerob25/sem-coursework-be?branch=master)
+code coverage: ![Codecov](https://img.shields.io/codecov/c/github/joerob25/main)
 
 Release: [![Releases](https://img.shields.io/github/release/joerob25/sem-coursework-be/all.svg?style=flat-square)](https://github.com/joerob25/sem-coursework-be/releases)
 
