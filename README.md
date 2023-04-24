@@ -3,7 +3,7 @@ Coursework for Team E
 
 Github workflow status: ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/joerob25/sem-coursework-be/CI-Build-And-Integration-Test.yml)
 
-Github develop branch state: ![GitHub branch checks state](https://img.shields.io/github/checks-status/joerob25/sem-coursework-be/main)
+Github main branch state: ![GitHub branch checks state](https://img.shields.io/github/checks-status/joerob25/sem-coursework-be/main)
 
 Github develop branch state: ![GitHub branch checks state](https://img.shields.io/github/checks-status/joerob25/sem-coursework-be/develop)
 
