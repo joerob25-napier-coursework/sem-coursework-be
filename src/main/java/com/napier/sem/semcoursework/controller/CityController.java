@@ -79,6 +79,14 @@ public class CityController {
         return new ResponseEntity<>(cityRepository.largestToSmallestCitiesDistrict(district), HttpStatus.OK);
     }
 
+    /**
+     * Handles the request for the top N cities in a specified continent.
+     *
+     * @param n         the number of top cities to return
+     * @param continent the specified continent
+     * @return ResponseEntity containing the list of top N cities in the specified continent and an HTTP status code
+     */
+
     @GetMapping(value = "/report/6/{n}/{continent}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<City>> topNCitiesInContinent(
             @PathVariable int n, @PathVariable String continent
@@ -90,6 +98,14 @@ public class CityController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Please provide a number");
         }
     }
+
+    /**
+     * Handles the request for the top N cities in a specified region.
+     *
+     * @param n      the number of top cities to return
+     * @param region the specified region
+     * @return ResponseEntity containing the list of top N cities in the specified region and an HTTP status code
+     */
 
     @GetMapping(value = "/report/7/{n}/{region}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<City>> topNCitiesInRegion(
@@ -103,6 +119,14 @@ public class CityController {
         }
     }
 
+    /**
+     * Handles the request for the top N cities in a specified district.
+     *
+     * @param n        the number of top cities to return
+     * @param district the specified district
+     * @return ResponseEntity containing the list of top N cities in the specified district and an HTTP status code
+     */
+
     @GetMapping(value = "/report/8/{n}/{district}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<City>> topNCitiesInDistrict(
             @PathVariable int n, @PathVariable String district
@@ -114,6 +138,14 @@ public class CityController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Please provide a number");
         }
     }
+
+    /**
+     * Handles the request for the top N cities in a specified country.
+     *
+     * @param n       the number of top cities to return
+     * @param country the specified country
+     * @return ResponseEntity containing the list of top N cities in the specified country and an HTTP status code
+     */
 
     @GetMapping(value = "/report/9/{n}/{country}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<City>> topNCitiesInCountry(
