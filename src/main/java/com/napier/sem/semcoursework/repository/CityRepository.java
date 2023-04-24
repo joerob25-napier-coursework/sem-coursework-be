@@ -23,7 +23,7 @@ public interface CityRepository extends JpaRepository<City, Integer> {
      * @param continent the name of the continent.
      * @return a list of City objects.
      */
-    @Query(value="select * from city JOIN Country on city.country_code = country.code where continent = continent order by population desc", nativeQuery = true)
+    @Query(value="select ci.* from city ci JOIN country co on ci.country_code = co.code where co.continent = :continent order by ci.population desc", nativeQuery = true)
     List<City> largestToSmallestCitiesContinent(@Param("continent") String continent);
 
     /**
@@ -32,7 +32,7 @@ public interface CityRepository extends JpaRepository<City, Integer> {
      * @param region the name of the region.
      * @return a list of City objects.
      */
-    @Query(value="select * from city Join Country on city.country_code = country.code where region = region order by population desc", nativeQuery = true)
+    @Query(value="select ci.* from city ci Join country co on ci.country_code = co.code where co.region = :region order by population desc", nativeQuery = true)
     List<City> largestToSmallestCitiesRegion(@Param("region") String region);
 
     /**
@@ -42,7 +42,7 @@ public interface CityRepository extends JpaRepository<City, Integer> {
      * @return a list of City objects.
      */
 
-    @Query(value="select * from city where country = :country order by population desc", nativeQuery = true)
+    @Query(value="select ci.* from city ci join country co on ci.country_code = co.code where co.name = :country order by ci.population desc", nativeQuery = true)
     List<City> largestToSmallestCitiesCountry(@Param("country") String country);
 
     /**
