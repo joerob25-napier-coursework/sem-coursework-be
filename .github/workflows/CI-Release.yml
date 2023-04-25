@@ -27,8 +27,8 @@ jobs:
         with:
           repo_token: '${{ secrets.GITHUB_TOKEN }}'
           prerelease: false
-          title: "Sprint 4 - Code Review"
-          automatic_release_tag: '1.0.0'
+          title: "Sprint 4 - Code Review 1a (presentation layer)"
+          automatic_release_tag: '1.1.0'
           files: |
             ./target/*.jar
       - name: Login Container Registry
