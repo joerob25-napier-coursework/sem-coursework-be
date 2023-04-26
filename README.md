@@ -23,7 +23,7 @@ CI release workflow:
 CI unit test workflow:
 ![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/joerob25/sem-coursework-be/CI-Unit-Test.yml?branch=develop&style=flat-square)<branch>
 
-**code coverage**
+**Code coverage**
 
 ![Codecov](https://img.shields.io/codecov/c/github/joerob25/main)
 
