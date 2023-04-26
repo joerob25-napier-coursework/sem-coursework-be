@@ -42,8 +42,8 @@ public interface AdditionalCountryLevelPopulationRepository extends JpaRepositor
      * @param countryCode provided by the user as the sql where clause
      * @return population of country
      */
-    @Query(value = "select sum(population) from country where code = :countryCode", nativeQuery = true)
+    @Query(value = "select sum(population) from country where name = :country", nativeQuery = true)
     Long countryPopulation(
-            @Param("countryCode") String countryCode
+            @Param("country") String countryCode
     );
 }

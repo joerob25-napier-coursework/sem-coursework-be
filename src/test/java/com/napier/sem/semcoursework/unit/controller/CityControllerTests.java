@@ -176,7 +176,7 @@ public class CityControllerTests {
         );
 
         when(cityRepository.topNContinent(nPopulated, "Asia")).thenReturn(cities);
-        MockHttpServletResponse response = mockMvc.perform(get("/cities/report/6/5/Asia")
+        MockHttpServletResponse response = mockMvc.perform(get("/cities/report/7/5/Asia")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
                         .accept(MediaType.APPLICATION_JSON_VALUE))
                 .andDo(print())
@@ -198,7 +198,7 @@ public class CityControllerTests {
         );
 
         MockHttpServletResponse response = mockMvc.perform(
-                        get("/cities/report/6/"+ nPopulated + "/" + continent)
+                        get("/cities/report/7/"+ nPopulated + "/" + continent)
                                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                                 .accept(MediaType.APPLICATION_JSON_VALUE))
                 .andDo(print())
@@ -217,7 +217,7 @@ public class CityControllerTests {
         String district = "some_district";
         when(cityRepository.topNContinent(nPopulated, district))
                 .thenThrow(new NumberFormatException("error"));
-        MockHttpServletResponse response = mockMvc.perform(get("/cities/report/6/"
+        MockHttpServletResponse response = mockMvc.perform(get("/cities/report/7/"
                         + nPopulated + "/" + district)
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
                         .accept(MediaType.APPLICATION_JSON_VALUE))
@@ -238,7 +238,7 @@ public class CityControllerTests {
 
         when(cityRepository.topNContinent(nPopulated, continent)).thenReturn(cities);
         MockHttpServletResponse response = mockMvc.perform(
-                        get("/cities/report/6/"+ nPopulated + "/" + continent)
+                        get("/cities/report/7/"+ nPopulated + "/" + continent)
                                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                                 .accept(MediaType.APPLICATION_JSON_VALUE))
                 .andDo(print())
@@ -258,7 +258,7 @@ public class CityControllerTests {
 
         when(cityRepository.topNCitiesRegion(nPopulated, "Fife")).thenReturn(cities);
         MockHttpServletResponse response = mockMvc.perform(
-                        get("/cities/report/7/3/Fife")
+                        get("/cities/report/8/3/Fife")
                                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                                 .accept(MediaType.APPLICATION_JSON_VALUE))
                 .andDo(print())
@@ -280,7 +280,7 @@ public class CityControllerTests {
         );
 
         MockHttpServletResponse response = mockMvc.perform(
-                        get("/cities/report/7/"+ nPopulated + "/" + region)
+                        get("/cities/report/8/"+ nPopulated + "/" + region)
                                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                                 .accept(MediaType.APPLICATION_JSON_VALUE))
                 .andDo(print())
@@ -299,7 +299,7 @@ public class CityControllerTests {
         String region = "region";
         when(cityRepository.topNCitiesRegion(nPopulated, region))
                 .thenThrow(new NumberFormatException("error"));
-        MockHttpServletResponse response = mockMvc.perform(get("/cities/report/7/"
+        MockHttpServletResponse response = mockMvc.perform(get("/cities/report/8/"
                         + nPopulated + "/" + region)
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
                         .accept(MediaType.APPLICATION_JSON_VALUE))
@@ -320,7 +320,7 @@ public class CityControllerTests {
 
         when(cityRepository.topNCitiesRegion(nPopulated, region)).thenReturn(cities);
         MockHttpServletResponse response = mockMvc.perform(
-                        get("/cities/report/7/"+ nPopulated + "/" + region)
+                        get("/cities/report/8/"+ nPopulated + "/" + region)
                                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                                 .accept(MediaType.APPLICATION_JSON_VALUE))
                 .andDo(print())
@@ -341,7 +341,7 @@ public class CityControllerTests {
 
         when(cityRepository.topNCitiesDistrict(nPopulated, "some_district")).thenReturn(cities);
         MockHttpServletResponse response = mockMvc.perform(
-                        get("/cities/report/8/"+ nPopulated + "/" + district)
+                        get("/cities/report/10/"+ nPopulated + "/" + district)
                                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                                 .accept(MediaType.APPLICATION_JSON_VALUE))
                 .andDo(print())
@@ -363,7 +363,7 @@ public class CityControllerTests {
         );
 
         MockHttpServletResponse response = mockMvc.perform(
-                        get("/cities/report/8/"+ nPopulated + "/" + district)
+                        get("/cities/report/10/"+ nPopulated + "/" + district)
                                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                                 .accept(MediaType.APPLICATION_JSON_VALUE))
                 .andDo(print())
@@ -382,7 +382,7 @@ public class CityControllerTests {
         String district = "some_district";
         when(cityRepository.topNCitiesDistrict(nPopulated, district))
                 .thenThrow(new NumberFormatException("error"));
-        MockHttpServletResponse response = mockMvc.perform(get("/cities/report/8/"
+        MockHttpServletResponse response = mockMvc.perform(get("/cities/report/10/"
                         + nPopulated + "/" + district)
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
                         .accept(MediaType.APPLICATION_JSON_VALUE))
@@ -403,7 +403,7 @@ public class CityControllerTests {
 
         when(cityRepository.topNCitiesRegion(nPopulated, district)).thenReturn(cities);
         MockHttpServletResponse response = mockMvc.perform(
-                        get("/cities/report/8/"+ nPopulated + "/" + district)
+                        get("/cities/report/10/"+ nPopulated + "/" + district)
                                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                                 .accept(MediaType.APPLICATION_JSON_VALUE))
                 .andDo(print())
@@ -486,7 +486,7 @@ public class CityControllerTests {
 
         when(cityRepository.topNCitiesCountry(nPopulated, country)).thenReturn(cities);
         MockHttpServletResponse response = mockMvc.perform(
-                        get("/cities/report/8/"+ nPopulated + "/" + country)
+                        get("/cities/report/9/"+ nPopulated + "/" + country)
                                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                                 .accept(MediaType.APPLICATION_JSON_VALUE))
                 .andDo(print())

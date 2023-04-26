@@ -58,10 +58,19 @@ public interface CityRepository extends JpaRepository<City, Integer> {
      * Returns the top N most populous cities in a specified continent.
      *
      * @param n the number of cities to return
+     * @return a list of top N most populous cities in the specified continent
+     */
+    @Query(value="select ci.* from city ci JOIN country co on ci.country_code = co.code order by ci.population desc LIMIT :n", nativeQuery = true)
+    List<City> topN(@Param("n") int n);
+
+    /**
+     * Returns the top N most populous cities in a specified continent.
+     *
+     * @param n the number of cities to return
      * @param continent the continent to search for cities
      * @return a list of top N most populous cities in the specified continent
      */
-    @Query(value="select * from city JOIN Country on city.country_code = country.code where continent = :continent order by population desc LIMIT :n", nativeQuery = true)
+    @Query(value="select ci.* from city ci JOIN country co on ci.country_code = co.code where co.continent = :continent order by ci.population desc LIMIT :n", nativeQuery = true)
     List<City> topNContinent(@Param("n") int n, @Param("continent") String continent);
 
     /**
@@ -71,7 +80,7 @@ public interface CityRepository extends JpaRepository<City, Integer> {
      * @param region the region to search for cities
      * @return a list of top N most populous cities in the specified region
      */
-    @Query(value="select * from city Join Country on city.country_code = country.code where region = :region order by population desc LIMIT :n", nativeQuery = true)
+    @Query(value="select ci.* from city ci Join country co on ci.country_code = co.code where co.region = :region order by ci.population desc LIMIT :n", nativeQuery = true)
     List<City> topNCitiesRegion(@Param("n") int n, @Param("region") String region);
 
     /**
@@ -81,7 +90,7 @@ public interface CityRepository extends JpaRepository<City, Integer> {
      * @param country the country to search for cities
      * @return a list of top N most populous cities in the specified country
      */
-    @Query(value="select * from city where country = :country order by population desc LIMIT :n", nativeQuery = true)
+    @Query(value="select ci.* from city ci Join country co on ci.country_code = co.code where co.name = :country order by ci.population desc LIMIT :n", nativeQuery = true)
     List<City> topNCitiesCountry(@Param("n") int n, @Param("country") String country);
 
     /**
