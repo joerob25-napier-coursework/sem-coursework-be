@@ -1,7 +1,7 @@
 # sem-coursework
 Coursework for Team E
 
-Build status for main
+**Build status for main**
 
 CI Build and Integration workflow:
 ![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/joerob25/sem-coursework-be/CI-Build-And-Integration-Test.yml?branch=main&style=flat-square)<branch>
@@ -12,12 +12,14 @@ CI release workflow:
 CI unit test workflow:
 ![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/joerob25/sem-coursework-be/CI-Unit-Test.yml?branch=main&style=flat-square)<branch>
 
-Build status for develop
+**Build status for develop**
 
 CI Build and Integration workflow:
 ![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/joerob25/sem-coursework-be/CI-Build-And-Integration-Test.yml?branch=develop&style=flat-square)<branch>
+
 CI release workflow:
 ![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/joerob25/sem-coursework-be/CI-Release.yml?branch=develop&style=flat-square)<branch>
+
 CI unit test workflow:
 ![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/joerob25/sem-coursework-be/CI-Unit-Test.yml?branch=develop&style=flat-square)<branch>
 
