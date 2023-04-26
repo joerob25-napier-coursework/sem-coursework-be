@@ -28,15 +28,15 @@ public class Population {
     /**
      *The total population of the continent/region/country.
      */
-    private String population;
+    private Long population;
 
     /**
      *The percentage of the population living in cities.
      */
-    private String in_cities;
+    private Long in_cities;
 
     /**
      *The percentage of the population not living in cities.
      */
-    private String not_in_cities;
+    private Long not_in_cities;
 }
