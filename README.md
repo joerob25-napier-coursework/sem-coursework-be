@@ -6,8 +6,11 @@ Build status for main
 CI Build and Integration workflow:
 ![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/joerob25/sem-coursework-be/CI-Build-And-Integration-Test.yml?branch=main&style=flat-square)<branch>
 
-CI release workflow: https://img.shields.io/github/actions/workflow/status/joerob25/sem-coursework-be/CI-Release.yml?branch=main
-CI unit test workflow: https://img.shields.io/github/actions/workflow/status/joerob25/sem-coursework-be/CI-Unit-Test.yml?branch=main
+CI release workflow:
+![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/joerob25/sem-coursework-be/CI-Release.yml?branch=main&style=flat-square)<branch>
+
+CI unit test workflow:
+![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/joerob25/sem-coursework-be/CI-Unit-Test.yml?branch=main&style=flat-square)<branch>
 
 Build status for develop
 
