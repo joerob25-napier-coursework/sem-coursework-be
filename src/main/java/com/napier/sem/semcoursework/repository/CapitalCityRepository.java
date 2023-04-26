@@ -62,7 +62,7 @@ public interface CapitalCityRepository extends JpaRepository<CapitalCity, String
      * @param region provided by the user as the sql where clause
      * @return list of capital cities
      */
-    @Query(value = "SELECT city.name AS name, country.name AS country, city.population FROM city JOIN country ON city.country_code = country.code WHERE city.name = country.capital AND region =  :region ORDER BY city.population DESC LIMIT :n", nativeQuery = true)
+    @Query(value = "SELECT city.name AS name, country.name AS country, city.population FROM city JOIN country ON city.country_code = country.code WHERE city.id = country.capital AND region =  :region ORDER BY city.population DESC LIMIT :n", nativeQuery = true)
     List<CapitalCity> topNPopulatedCapitalCitiesInRegion(
             @Param("n") int n, @Param("region") String region
     );
