@@ -3,7 +3,8 @@ Coursework for Team E
 
 Build status for main
 
-CI Build and Integration workflow: https://img.shields.io/github/actions/workflow/status/joerob25/sem-coursework-be/CI-Build-And-Integration-Test.yml?branch=main
+CI Build and Integration workflow:
+https://img.shields.io/github/actions/workflow/status/joerob25/sem-coursework-be/CI-Build-And-Integration-Test.yml?branch=main
 CI release workflow: https://img.shields.io/github/actions/workflow/status/joerob25/sem-coursework-be/CI-Release.yml?branch=main
 CI unit test workflow: https://img.shields.io/github/actions/workflow/status/joerob25/sem-coursework-be/CI-Unit-Test.yml?branch=main
 
