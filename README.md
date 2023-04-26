@@ -23,13 +23,19 @@ CI release workflow:
 CI unit test workflow:
 ![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/joerob25/sem-coursework-be/CI-Unit-Test.yml?branch=develop&style=flat-square)<branch>
 
-code coverage: ![Codecov](https://img.shields.io/codecov/c/github/joerob25/main)
+**code coverage**
 
-Release: [![Releases](https://img.shields.io/github/release/joerob25/sem-coursework-be/all.svg?style=flat-square)](https://github.com/joerob25/sem-coursework-be/releases)
+![Codecov](https://img.shields.io/codecov/c/github/joerob25/main)
 
-License [![LICENSE](https://img.shields.io/github/license/joerob25/sem-coursework-be.svg?style=flat-square)](https://github.com/joerob25/sem-coursework-be/blob/master/LICENSE)
+**Release**
 
-There are 32 requirements in total. We have met 32 of the requirements which is 100%.
+[![Releases](https://img.shields.io/github/release/joerob25/sem-coursework-be/all.svg?style=flat-square)](https://github.com/joerob25/sem-coursework-be/releases)
+
+**License**
+
+[![LICENSE](https://img.shields.io/github/license/joerob25/sem-coursework-be.svg?style=flat-square)](https://github.com/joerob25/sem-coursework-be/blob/master/LICENSE)
+
+**There are 32 requirements in total. We have met 32 of the requirements which is 100%.**
 
 | ID  | Name                                                                                                               | Met | Screenshot |
 |-----|--------------------------------------------------------------------------------------------------------------------|-----|------------|
