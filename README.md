@@ -31,16 +31,16 @@
 | 4   | The top N populated countries in the world where N is provided by the user.                                        | Yes | ![country-report-4](img/country-report-4.png) |
 | 5   | The top N populated countries in a continent where N is provided by the user.                                      | Yes | ![country-report-5](img/country-report-5.png) |
 | 6   | The top N populated countries in a region where N is provided by the user.                                         | Yes | ![country-report-6](img/country-report-6.png) |
-| 7   | All the cities in the world organised by largest population to smallest.                                           | Yes | ![city-report-5](img/city-report-1.png)       |
-| 8   | All the cities in a continent organised by largest population to smallest.                                         | Yes |                                               |
-| 9   | All the cities in a region organised by largest population to smallest.                                            | Yes |                                               |
-| 10  | All the cities in a country organised by largest population to smallest.                                           | Yes |                                               |
-| 11  | All the cities in a district organised by largest population to smallest.                                          | Yes |                                               |
-| 12  | The top N populated cities in the world where N is provided by the user.                                           | Yes |                                               |
-| 13  | The top N populated cities in a continent where N is provided by the user.                                         | Yes |                                               |
-| 14  | The top N populated cities in a region where N is provided by the user.                                            | Yes |                                               |
-| 15  | The top N populated cities in a country where N is provided by the user.                                           | Yes |                                               |
-| 16  | The top N populated cities in a district where N is provided by the user.                                          | Yes |                                               |
+| 7   | All the cities in the world organised by largest population to smallest.                                           | Yes | ![city-report-1](img/city-report-1.png)       |
+| 8   | All the cities in a continent organised by largest population to smallest.                                         | Yes | ![city-report-2](img/city-report-2.png)       |
+| 9   | All the cities in a region organised by largest population to smallest.                                            | Yes | ![city-report-3](img/city-report-3.png)       |
+| 10  | All the cities in a country organised by largest population to smallest.                                           | Yes | ![city-report-4](img/city-report-4.png)       |
+| 11  | All the cities in a district organised by largest population to smallest.                                          | Yes | ![city-report-5](img/city-report-5.png)       |
+| 12  | The top N populated cities in the world where N is provided by the user.                                           | Yes | ![city-report-6](img/city-report-6.png)       |
+| 13  | The top N populated cities in a continent where N is provided by the user.                                         | Yes | ![city-report-7](img/city-report-7.png)       |
+| 14  | The top N populated cities in a region where N is provided by the user.                                            | Yes | ![city-report-8](img/city-report-8.png)       |
+| 15  | The top N populated cities in a country where N is provided by the user.                                           | Yes | ![city-report-9](img/city-report-9.png)       |
+| 16  | The top N populated cities in a district where N is provided by the user.                                          | Yes | ![city-report-10](img/city-report-10.png)     |
 | 17  | All the capital cities in the world organised by largest population to smallest.                                   | Yes |                                               |
 | 18  | All the capital cities in a continent organised by largest population to smallest.                                 | Yes |                                               |
 | 19  | All the capital cities in a region organised by largest to smallest.                                               | Yes |                                               |
