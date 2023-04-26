@@ -10,7 +10,7 @@ services:
       - MYSQL_ROOT_PASSWORD=password
 
   spring-app:
-    build: .
+    image: ghcr.io/joerob25/sem-coursework-be:release
     restart: unless-stopped
     ports:
       - 8080:8080
