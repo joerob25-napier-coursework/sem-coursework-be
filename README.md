@@ -1,18 +1,17 @@
 # sem-coursework
 Coursework for Team E
 
-Github workflow status: 
+Build status for main
 
-![workflow](https://github.com/joerob25/sem-coursework-be/actions/workflows/CI-Build-And-Integration-Test.yml/badge.svg)
+CI Build and Integration workflow: https://img.shields.io/github/actions/workflow/status/joerob25/sem-coursework-be/CI-Build-And-Integration-Test.yml?branch=main
+CI release workflow: https://img.shields.io/github/actions/workflow/status/joerob25/sem-coursework-be/CI-Release.yml?branch=main
+CI unit test workflow: https://img.shields.io/github/actions/workflow/status/joerob25/sem-coursework-be/CI-Unit-Test.yml?branch=main
 
-![workflow](https://github.com/joerob25/sem-coursework-be/actions/workflows/CI-Release.yml/badge.svg)
+Build status for develop
 
-![workflow](https://github.com/joerob25/sem-coursework-be/actions/workflows/CI-Unit-Test.yml/badge.svg)
-
-
-Github main branch state: ![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/joerob25/sem-coursework-be/main.yml?branch=main&style=flat-square)
-
-Github develop branch state: ![GitHub branch checks state](https://img.shields.io/github/checks-status/joerob25/sem-coursework-be/develop)
+CI Build and Integration workflow: https://img.shields.io/github/actions/workflow/status/joerob25/sem-coursework-be/CI-Build-And-Integration-Test.yml?branch=develop
+CI release workflow: https://img.shields.io/github/actions/workflow/status/joerob25/sem-coursework-be/CI-Release.yml?branch=develop
+CI unit test workflow: https://img.shields.io/github/actions/workflow/status/joerob25/sem-coursework-be/CI-Unit-Test.yml?branch=develop
 
 code coverage: ![Codecov](https://img.shields.io/codecov/c/github/joerob25/main)
 
